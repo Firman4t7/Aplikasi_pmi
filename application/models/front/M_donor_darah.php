@@ -1,0 +1,32 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class M_donor_darah extends CI_Model {
+
+	public function get_autocomplete($title)
+	{
+		$this->db->like('no_ktp', $title, 'BOTH');
+		$this->db->order_by('id_user', 'asc');
+		$this->db->limit(10);
+		return $this->db->get('user')->result();
+	}
+
+	public function get_ketersediaanD()
+	{
+
+		$this->db->select('t2.no_telepon,t1.no_telepon_kantor,k.golongan_darah, SUM(k.stok_darah) as stok_darah', FALSE);
+		$this->db->from('ketersediaan_darah k');
+		$this->db->join('form_pendonor t1', 't1.golongan_darah = k.golongan_darah', 'LEFT'); 
+		$this->db->join('user t2', 't2.username = t1.user_id', 'LEFT'); 
+		$this->db->group_by('k.golongan_darah');
+		return $result = $this->db->get()->result();
+
+
+	}
+
+
+
+}
+
+/* End of file M_donor_darah.php */
+/* Location: ./application/models/front/M_donor_darah.php */
