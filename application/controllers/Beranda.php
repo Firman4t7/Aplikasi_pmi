@@ -19,13 +19,10 @@ class Beranda extends CI_Controller {
 
 		$data['tampil'] = $this->M_ketersediaan->getGroupData();
 		
-		$data['jadwal'] = $this->M_jadwal->getDataJadwal();
-
+		$data['jadwal'] = $this->M_jadwal->getDataJadwalFront();
 
 		$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
 		
-
-
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 

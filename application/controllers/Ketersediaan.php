@@ -23,7 +23,6 @@ class Ketersediaan extends CI_Controller {
 
 		$tampilData = $this->M_ketersediaan->getDataKetersediaan();
 
-
 		$data = array('tampil' => $tampilData);
 
 		$data['title'] = 'PMI - Provinsi Sultra';
@@ -41,14 +40,12 @@ class Ketersediaan extends CI_Controller {
 		$update_time = $this->input->post('update_time');
 		$update_by = $this->input->post('update_by');
 
-
 		$data = array(
 			'golongan_darah' => $gol_darah,
 			'stok_darah' => $stok_darah,
 			'update_time' => $update_time,
 			'update_by' => $update_by
 		);
-
 
 		// simpan data
 		$save = $this->M_ketersediaan->inputKet($data);
@@ -63,7 +60,6 @@ class Ketersediaan extends CI_Controller {
 		$editkets = $this->M_ketersediaan->getTampilket($id);
 
 		$data = array('keterangan' => $editkets);
-
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 

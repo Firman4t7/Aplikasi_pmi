@@ -89,9 +89,7 @@ include'componens/header.php';
 
 				<?php } ?>
 
-
 				<!-- Button trigger modal -->
-
 
 			</div>
 		</div>
@@ -102,14 +100,14 @@ include'componens/header.php';
 	<section id="services" class="services section-bg">
 		<div class="container">
 
-			<div class="pr-10">
+			<!-- <div class="pr-10">
 				<h2>Jadwal Kegiatan</h2>
-			</div>
+			</div> -->
 
 			<div class="row" style="width: 1210px;">
 				<div class="col-md-12" style="width: 1430px;right: 40px;">
 					<div class="icon-box table-responsive">
-						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<!-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th>No.</th>
@@ -124,11 +122,9 @@ include'componens/header.php';
 								</tr>
 							</thead>
 							<tbody>
-
 								<?php 
 								$no = 1;
 								foreach ($jadwal as $row) {
-
 
 									?>
 									<tr>
@@ -143,11 +139,50 @@ include'componens/header.php';
 										<td class="text-dark text-nowrap">
 											<a href="<?php echo base_url('jadwal_kegiatan/Detailjadwal/'). $row->id_keg; ?>" class="btn btn-primary">Detail</a>
 										</td>
-
 									</tr>
+
 								<?php } ?>
 							</tbody>
-						</table>
+						</table> -->
+						<div class="pr-10">
+							<h2>Jadwal Kegiatan</h2>
+						</div>
+						<form>
+							<?php foreach ($jadwal as $data) { ?>
+								<div class="form-group">
+									<label>Waktu</label>
+									<input type="text" name="waktu" class="form-control" value="<?= $data->waktu; ?>" readonly>
+								</div>
+								<div class="form-group">
+									<label>Instansi</label>
+									<input type="text" name="instansi" class="form-control" value="<?= $data->instansi; ?>" readonly>
+								</div>
+								<div class="form-group">
+									<label>Tempat Kegiatan</label>
+									<input type="text" name="tempat_kegiatan" class="form-control" value="<?= $data->tempat_kegiatan; ?>" readonly>
+								</div>
+								<div class="form-group">
+									<label>Jam</label>
+									<input type="text" name="jam" class="form-control" value="<?= $data->jam; ?>" readonly>
+								</div>
+								<div class="form-group">
+									<label>Keterangan</label>
+									<textarea class="form-control" name="ket" readonly><?= $data->ket; ?></textarea>
+								</div>
+								<div class="form-group">
+									<label>Update By</label>
+									<input type="text" name="update_by" class="form-control" value="<?= $data->update_by; ?>" readonly>
+								</div>
+								<div class="form-group">
+									<label>Update At</label>
+									<input type="text" name="update_at" class="form-control" value="<?= $data->update_at; ?>" readonly>
+								</div>
+
+							<?php } ?>
+
+						</form>
+
+
 					</div>
 				</div>
 			</div>

@@ -47,7 +47,9 @@ aria-hidden="true">
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 
 
@@ -69,6 +71,55 @@ aria-hidden="true">
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url('template/template_admin/js/demo/datatables-demo.js') ?>"></script>
+
+
+
+<script>
+	$(document).ready(function() {
+        // Untuk sunting
+        $('#edit-data').on('show.bs.modal', function (event) {
+
+        	var id_data = document.getElementById('id');
+        	var hp = document.getElementById('hp_wa');
+        	var pesan = document.getElementById('pesan_wa');
+
+
+        	console.log(id_data)
+        	console.log(hp)
+        	console.log(pesa)
+
+        });
+    });
+</script>
+
+
+<script>
+	$(document).ready(function() {
+        var rows = $("#dataTable tbody tr"); // Mendapatkan semua baris tabel
+
+        rows.each(function() {
+            var stokDarah = parseInt($(this).find("td:eq(2)").text()); // Mengambil nilai stok_darah dari kolom ke-3
+
+            if (stokDarah === 3) {
+                // Menampilkan alert jika stok_darah kurang dari atau sama dengan 3
+                alert("Peringatan: Stok darah tinggal " + stokDarah + " kantong di golongan darah " + $(this).find("td:eq(1)").text());
+
+                 // Tambahkan konfirmasi dialog
+                 var confirmNotif = confirm("Apakah Anda ingin mengirim notifikasi ke WhatsApp?");
+
+                // Cek apakah pengguna menekan OK
+                if (confirmNotif) {
+                    // Redirect ke halaman tertentu setelah menutup alert
+                    window.location.href = "<?= base_url('data_user')?>";
+                } else {
+                    // Pengguna membatalkan, tambahkan logika tambahan atau hapus baris ini jika tidak diperlukan
+                    console.log("Pengguna membatalkan pengiriman notifikasi.");
+                }
+
+            }
+        });
+    });
+</script>
 
 
 

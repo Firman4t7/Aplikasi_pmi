@@ -41,6 +41,7 @@
 				<a class="collapse-item" href="<?= base_url('ketersediaan/datapendonor')?>">Data Pendonor</a>
 				<a class="collapse-item" href="<?= base_url('jadwal')?>">Jadwal Kegiatan</a>
 				<a class="collapse-item" href="<?= base_url('jumbotron')?>">Isi Jumbotron</a>
+				<a class="collapse-item" href="<?= base_url('data_user')?>">Data User</a>
 			</div>
 		</div>
 	</li>

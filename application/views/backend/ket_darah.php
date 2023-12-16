@@ -54,6 +54,16 @@
 						$no = 1;
 						foreach ($tampil as $key => $data) {
 
+
+							$golonganDarah = $data->golongan_darah;
+							$stokDarah = $data->stok_darah;
+
+							if (!isset($totalStok[$golonganDarah])) {
+								$totalStok[$golonganDarah] = 0;
+							}
+
+							$totalStok[$golonganDarah] += $stokDarah;
+
 							?>
 							<tr>
 								<td><?= $no++; ?></td>
@@ -67,7 +77,9 @@
 								</td>
 							</tr>
 
+
 						<?php } ?>
+
 					</tbody>
 				</table>
 			</div>

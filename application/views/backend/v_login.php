@@ -54,7 +54,7 @@
           class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form action="<?= base_url('auth/aksi_login')?>" method="POST">
+          <form action="<?= base_url('login')?>" method="POST">
 
             <div class="divider d-flex align-items-center my-4">
               <h1 align="center">Silahkan Login</h1>
