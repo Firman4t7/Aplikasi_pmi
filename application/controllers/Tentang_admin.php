@@ -41,7 +41,7 @@ class Tentang_admin extends CI_Controller {
 		// simpan data
 		$save = $this->M_tentang->inputTentang($data);
 		$this->session->set_flashdata('flash', 'Disimpan');
-		redirect('tentang');
+		redirect('tentang_admin');
 
 	}
 
@@ -67,7 +67,6 @@ class Tentang_admin extends CI_Controller {
 		$prof = $this->input->post('profil');
 		$vs = $this->input->post('visimisi');
 
-
 		$data = array(
 			'profil' => $prof,
 			'visimisi' => $vs
@@ -77,7 +76,7 @@ class Tentang_admin extends CI_Controller {
 		//print_r($data);
 		$update = $this->M_tentang->updateTentang($data, $id);
 		$this->session->set_flashdata('flash', 'Diupdate');
-		redirect('tentang');	
+		redirect('tentang_admin');	
 	}
 
 

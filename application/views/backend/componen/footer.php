@@ -7,7 +7,7 @@
 <footer class="sticky-footer bg-white">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright &copy; Your Website 2020</span>
+			<span>Copyright &copy; Your Website 2023</span>
 		</div>
 	</div>
 </footer>
@@ -122,12 +122,23 @@ aria-hidden="true">
 </script>
 
 
-
 <script>
 	$(function(){
 
 		CKEDITOR.replace('editor')
 	});
+</script>
+
+
+<script>
+    document.getElementById('kirimButton').addEventListener('click', function () {
+        var pesanInput = document.getElementsByName('pesan_wa')[0].value;
+        var hpInput = document.getElementsByName('hp_wa')[0].value;
+
+        var whatsappLink = 'https://web.whatsapp.com/send?phone=' + hpInput + '&text=' + encodeURIComponent(pesanInput);
+
+        window.open(whatsappLink, '_blank');
+    });
 </script>
 
 </body>

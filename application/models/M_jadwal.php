@@ -12,16 +12,21 @@ class M_jadwal extends CI_Model {
 	}
 
 
-	public function getDataJadwalFront() {
+	public function getDataJadwalFront($datetime) {
 
-		$this->db->select('*');
-		$this->db->from('jadwal_kegiatan');
-		$this->db->where('waktu >=', date('Y-m-d')); 
-		$this->db->order_by('waktu', 'asc'); 
-		$this->db->limit(1); 
-		$query = $this->db->get();
-		return $query->result(); 
+
+		 // Konversi input datetime-local ke format datetime MySQL
+		$datetimelocal = date('Y-m-d H:i:s', strtotime($datetime));
+
+		$this->db->where('waktu', $datetimelocal);
+		$query = $this->db->get('jadwal_kegiatan');
+
+		return $query->result();
+		
 	}
+
+
+
 
 
 

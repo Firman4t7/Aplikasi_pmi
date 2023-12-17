@@ -31,7 +31,6 @@ class M_jumbotron extends CI_Model {
 		return $row;
 	}
 
-
 	public function updateIsiJumbo($data, $id) {
 
 		$this->db->where('id_jb', $id);

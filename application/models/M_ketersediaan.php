@@ -22,6 +22,7 @@ class M_ketersediaan extends CI_Model {
 		return $query->row();
 	}
 
+
 	public function updateKeter($data, $id) {
 
 		$this->db->where('id_ket', $id);

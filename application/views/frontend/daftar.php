@@ -67,12 +67,13 @@ include'componens/header.php';
 
 							<div class="form-group">
 								<label style="float: left;"><b>No Telephone</b></label>
-								<div class="input-group mb-3">
+								<div class="input-group mb-1">
 									<span class="input-group-text">
 										+
 									</span>
 									<input type="text" class="form-control" name="no_telepon" id="no_telepon" value="62">
 								</div>
+								<p class="input-group" style="color: red;">"+62" di inputan sama dengan "08" jadi inputkan lanjutan digit nohp belakang</p>
 							</div>
 
 							<div class="form-group">

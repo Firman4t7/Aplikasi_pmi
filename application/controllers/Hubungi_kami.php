@@ -3,8 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Hubungi_kami extends CI_Controller {
 
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('M_kontak');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+	}
+
 	public function index()
 	{
+		$tampilData = $this->M_kontak->getDataKontak();
+
+		$data = array('tampil' => $tampilData);
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 

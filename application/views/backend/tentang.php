@@ -41,7 +41,6 @@ include 'componen/header.php'
 						<input type="text" class="form-control" name="profil" value="<?= $data->profil; ?>">
 						<label>Visi - Misi</label>
 						<textarea class="form-control" name="visimisi" id="editor" required><?= $data->visimisi; ?></textarea>
-
 					<?php } ?>
 					<button type="submit" class="btn btn-primary mt-4"><i class="fas fa-save"></i> Simpan</button>
 				</div>

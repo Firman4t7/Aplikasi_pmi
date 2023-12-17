@@ -25,23 +25,27 @@ include'componens/header.php';
 
 					<div class="info-wrap">
 						<div class="row">
-							<div class="col-lg-4 info">
-								<i class="bi bi-geo-alt"></i>
-								<h4>Lokasi:</h4>
-								<p>2GPP+VJ3, Jl. Bunga Kumala, Lahundape, Kec. Kendari Bar., Kota Kendari, Sulawesi Tenggara 93121</p>
-							</div>
+							<?php
+							foreach ($tampil as $data) {
+								?>
+								<div class="col-lg-4 info">
+									<i class="bi bi-geo-alt"></i>
+									<h4>Lokasi:</h4>
+									<p><?= $data->alamat; ?></p>
+								</div>
 
-							<div class="col-lg-4 info mt-4 mt-lg-0">
-								<i class="bi bi-envelope"></i>
-								<h4>Email:</h4>
-								<p>info@example.com<br>contact@example.com</p>
-							</div>
+								<div class="col-lg-4 info mt-4 mt-lg-0">
+									<i class="bi bi-envelope"></i>
+									<h4>Email:</h4>
+									<p><?= $data->email; ?></p>
+								</div>
 
-							<div class="col-lg-4 info mt-4 mt-lg-0">
-								<i class="bi bi-phone"></i>
-								<h4>Telephone:</h4>
-								<p>+62xxxxxxxxx</p>
-							</div>
+								<div class="col-lg-4 info mt-4 mt-lg-0">
+									<i class="bi bi-phone"></i>
+									<h4>Telephone:</h4>
+									<p><?= $data->telepon; ?></p>
+								</div>
+							<?php } ?>
 						</div>
 					</div>
 

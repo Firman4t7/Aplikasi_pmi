@@ -48,18 +48,6 @@ include 'componen/header.php'
 					</div>
 				</div>
 			</form>
-
-			<script>
-				document.getElementById('kirimButton').addEventListener('click', function () {
-					var pesanInput = document.getElementsByName('pesan_wa')[0].value;
-					var hpInput = document.getElementsByName('hp_wa')[0].value;
-
-					var whatsappLink = 'https://web.whatsapp.com/send?phone=' + hpInput + '&text=' + encodeURIComponent(pesanInput);
-
-					window.open(whatsappLink, '_blank');
-				});
-			</script>
-
 		</div>
 	</div>
 </div>

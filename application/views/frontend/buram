@@ -1,0 +1,16 @@
+<?php if ($data->stok_darah <= 3) : ?>
+	<script>
+							                // tampillkan alert jika stok_darah kurang dari atau sama dengan 3
+							                alert('Perhatian: Stok darah tinggal sedikit untuk golongan darah <?= $data->golongan_darah; ?>!');
+
+							                 // Buat link untuk mengirim pesan ke API WhatsApp
+							                 var golonganDarah = '<?= $data->golongan_darah; ?>';
+										    var nomorWhatsapp = '6282290385302'; // Ganti dengan nomor WhatsApp yang sesuai
+										    var pesan = encodeURIComponent('Halo, Stok darah tinggal sedikit untuk golongan darah' + golonganDarah);
+
+										    var linkWhatsapp = 'https://api.whatsapp.com/send?phone=' + nomorWhatsapp + '&text=' + pesan;
+
+										    // Buka link WhatsApp
+										    window.open(linkWhatsapp, '_blank');
+										</script>
+										<?php endif; ?>

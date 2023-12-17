@@ -54,6 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-// alias route
 $route['login']['post'] = 'auth/aksi_login';
 $route['masuk']['get'] = 'auth';

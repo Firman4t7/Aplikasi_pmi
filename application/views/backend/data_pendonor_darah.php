@@ -27,11 +27,6 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<h6 class="m-0 font-weight-bold text-primary">Data Pendonor
-
-				<!-- Button trigger modal -->
-				<!-- <button type="button" style="float: right;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-					<i class="fas fa-plus"></i>	Tambah Data
-				</button> -->
 			</h6>
 
 		</div>
@@ -42,12 +37,8 @@
 						<tr>
 							<th>No.</th>
 							<th>Nomor Kartu Pendonor</th>
-							<th>Nomor Ktp</th>
 							<th>Nama Lengkap</th>
 							<th>Jenis Kelamin</th>
-							<th>Alamat</th>
-							<th>Pekerjaan</th>
-							<th>Tempat Lahir</th>
 							<th>Alamat Kantor</th>
 							<th>Nomor Telphone Kantor</th>
 							<th>Golongan Darah</th>
@@ -57,26 +48,19 @@
 							<th>Donor Terakhir</th>
 							<th>Donor Keberapa</th>
 							<th>Aksi</th>
-
 						</tr>
 					</thead>
 					<tbody>
 
 						<?php
-
 						$no = 1;
 						foreach ($data_pendonor as $data) {
-
 							?>
 							<tr>
 								<td><?= $no++; ?></td>
 								<td><?= $data->no_kartudonor; ?></td>
-								<td><?= $data->no_ktp; ?></td>
 								<td><?= $data->nama_lengkap; ?></td>
 								<td><?= $data->jenis_kelamin; ?></td>
-								<td><?= $data->alamat_rumah; ?></td>
-								<td><?= $data->pekerjaan; ?></td>
-								<td><?= $data->tempat_lahir; ?></td>
 								<td><?= $data->alamat_kantor; ?></td>
 								<td><?= $data->no_telepon_kantor; ?></td>
 								<td><?= $data->golongan_darah; ?></td>
@@ -86,10 +70,9 @@
 								<td><?= $data->donor_terakhir; ?></td>
 								<td><?= $data->donor_keberapa; ?></td>
 								<td class="text-dark text-nowrap">
-									<a href="" class="btn btn-warning">Edit</a> 
-									<a href="" class="btn btn-danger">Hapus</a>
+									<a href="<?= base_url('Ketersediaan/formedit_datapendonor/').$data->id_pendonor;?>" class="btn btn-warning">Edit</a> 
+									<a href="<?= base_url('Ketersediaan/aksiHapusDon/').$data->id_pendonor;?>" Onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data ini!')" class="btn btn-danger">Hapus</a>
 								</td>
-
 							</tr>
 						<?php } ?>
 					</tbody>

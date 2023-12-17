@@ -17,16 +17,46 @@ class Beranda extends CI_Controller {
 	public function index()
 	{
 
+
 		$data['tampil'] = $this->M_ketersediaan->getGroupData();
 		
-		$data['jadwal'] = $this->M_jadwal->getDataJadwalFront();
-
-		$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
 		
+		$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
+
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 
 		$this->load->view('frontend/home', $data);
+	}
+
+
+	public function AksiInsertdatehariini()
+	{
+
+		$datetime = $this->input->post('pilih');
+
+
+		if ($datetime == "") {
+			
+			redirect('Beranda');
+
+		}else{
+
+			$data['jadwal'] = $this->M_jadwal->getDataJadwalFront($datetime);
+
+			$data['tampil'] = $this->M_ketersediaan->getGroupData();
+
+
+			$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
+
+
+			$data['title'] = 'PMI - Provinsi Sultra';
+
+			$this->load->view('frontend/home_tampil', $data);
+
+		}
+
+
 	}
 
 }

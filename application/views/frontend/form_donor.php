@@ -81,66 +81,50 @@ include'componens/header.php';
 											<option value="<?= $data->golongan_darah; ?>">
 												<?= $data->golongan_darah; ?>
 											</option>
-											<?php if ($data->stok_darah <= 3) : ?>
-												<script>
-							                // tampillkan alert jika stok_darah kurang dari atau sama dengan 3
-							                alert('Perhatian: Stok darah tinggal sedikit untuk golongan darah <?= $data->golongan_darah; ?>!');
-
-							                 // Buat link untuk mengirim pesan ke API WhatsApp
-							                 var golonganDarah = '<?= $data->golongan_darah; ?>';
-										    var nomorWhatsapp = '6282290385302'; // Ganti dengan nomor WhatsApp yang sesuai
-										    var pesan = encodeURIComponent('Halo, Stok darah tinggal sedikit untuk golongan darah' + golonganDarah);
-
-										    var linkWhatsapp = 'https://api.whatsapp.com/send?phone=' + nomorWhatsapp + '&text=' + pesan;
-
-										    // Buka link WhatsApp
-										    window.open(linkWhatsapp, '_blank');
-										</script>
-									<?php endif; ?>
-								<?php endforeach; ?>
-							</select>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Penghargaan Diterima</label>
+									<input type="text" name="penghargaan_diterima" id="penghargaan_diterima" class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Bersedia Donor Bulan Puasa</label>
+									<select class="form-control" name="bersedia_donor_puasa" id="bersedia_donor_puasa">
+										<option value="">- Pilih -</option>
+										<option value="iya">iya</option>
+										<option value="tidak">Tidak</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Bersedia Donor Diluar Rutin</label>
+									<select class="form-control" name="bersedia_donor_diluar_rutin" id="bersedia_donor_diluar_rutin">
+										<option value="">- Pilih -</option>
+										<option value="iya">iya</option>
+										<option value="tidak">Tidak</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Donor terakhir</label>
+									<input type="datetime-local" name="donor_terakhir" id="donor_terakhir" class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Donor keberapa</label>
+									<input type="text" name="donor_keberapa" id="donor_keberapa" class="form-control">
+								</div>
+								<div class="form-group">
+									<label></label>
+									<button id="tombol_donor" type="button" class="btn btn-primary">Simpan</button>
+								</div>
+							</form>
 						</div>
-						<div class="form-group">
-							<label>Penghargaan Diterima</label>
-							<input type="text" name="penghargaan_diterima" id="penghargaan_diterima" class="form-control">
-						</div>
-						<div class="form-group">
-							<label>Bersedia Donor Bulan Puasa</label>
-							<select class="form-control" name="bersedia_donor_puasa" id="bersedia_donor_puasa">
-								<option value="">- Pilih -</option>
-								<option value="iya">iya</option>
-								<option value="tidak">Tidak</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Bersedia Donor Diluar Rutin</label>
-							<select class="form-control" name="bersedia_donor_diluar_rutin" id="bersedia_donor_diluar_rutin">
-								<option value="">- Pilih -</option>
-								<option value="iya">iya</option>
-								<option value="tidak">Tidak</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Donor terakhir</label>
-							<input type="datetime-local" name="donor_terakhir" id="donor_terakhir" class="form-control">
-						</div>
-						<div class="form-group">
-							<label>Donor keberapa</label>
-							<input type="text" name="donor_keberapa" id="donor_keberapa" class="form-control">
-						</div>
-						<div class="form-group">
-							<label></label>
-							<button id="tombol_donor" type="button" class="btn btn-primary">Simpan</button>
-						</div>
-					</form>
+					</div>
 				</div>
+
+
 			</div>
 		</div>
-
-
-	</div>
-</div>
-</section><!-- End Services Section -->
+	</section><!-- End Services Section -->
 
 </main><!-- End #main -->
 

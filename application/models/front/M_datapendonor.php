@@ -24,9 +24,32 @@ class M_datapendonor extends CI_Model {
 		$this->db->where('form_pendonor.golongan_darah', $golongan_darah); 
 		$query = $this->db->get();
 
-
 		return $query->result();
 	}
+
+
+	public function getTampilDon($id) {
+		$this->db->where('id_pendonor', $id);
+		$query = $this->db->get('form_pendonor');
+		return $query->row();
+	}
+
+
+	public function updateDon($data, $id) {
+
+		$this->db->where('id_pendonor', $id);
+		$this->db->update('form_pendonor', $data);
+
+	}
+
+
+	public function deleteDon($id)
+	{
+		$this->db->where('id_pendonor', $id);
+		$this->db->delete('form_pendonor');
+	}
+
+
 
 }
 

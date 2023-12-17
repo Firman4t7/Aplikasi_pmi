@@ -20,27 +20,32 @@ class Kontak extends CI_Controller {
 
 	public function index()
 	{
+		$data['tampil'] = $this->M_kontak->Tampildataperidkontak();
+
 		$data['title'] = 'PMI - Provinsi Sultra';
 
 		$this->load->view('backend/contact', $data);
 	}
 
-	public function aksiInsertContact()
+	public function aksiUpdateContact()
 	{
+		$id = $this->input->post('id');
 		$alamats = $this->input->post('alamat');
 		$telp = $this->input->post('telepone');
+		$email = $this->input->post('email');
 		
 
 		$data = array(
 			'alamat' => $alamats,
-			'telepon' => $telp
+			'telepon' => $telp,
+			'email' => $email
 		);
 
 
 		// simpan data
-		$save = $this->M_kontak->inputkontak($data);
-		$this->session->set_flashdata('flash', 'Disimpan');
-		redirect('kontak');
+		$update = $this->M_kontak->updateDataKontak($data, $id);
+		$this->session->set_flashdata('flash', 'Diupdate');
+		redirect('kontak');	
 
 	}
 

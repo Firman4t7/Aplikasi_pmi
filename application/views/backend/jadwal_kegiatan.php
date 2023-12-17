@@ -93,7 +93,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="">Waktu</label>
-						<input type="datetime-local" class="form-control"  name="waktu" required>
+						<input type="text" class="form-control"  name="waktu" required>
 					</div> 
 					<div class="form-group">
 						<label for="">Instansi</label>

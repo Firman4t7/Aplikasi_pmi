@@ -30,13 +30,21 @@ include 'componen/header.php'
 			</h6>
 		</div>
 		<div class="card-body">
-			<form method="POST" action="<?= base_url('kontak/aksiInsertContact')?>">
+			<form method="POST" action="<?= base_url('kontak/aksiUpdateContact')?>">
 				<div class="form-group">
-					<label>Alamat</label>
-					<input type="text" class="form-control" name="alamat" required>
-					<label>No.Telephone</label>
-					<input type="text" class="form-control" name="telepone" required="">
-					<button type="submit" class="btn btn-primary mt-4"><i class="fas fa-save"></i> Simpan</button>
+					<?php
+					foreach ($tampil as $data) {
+						?>
+						<label>Alamat</label>
+						<input type="hidden" name="id" value="<?= $data->id_kontak; ?>">
+						<input type="text" class="form-control" name="alamat" value="<?= $data->alamat; ?>" required>
+						<label>No.Telephone</label>
+						<input type="text" class="form-control" name="telepone" value="<?= $data->telepon; ?>" required>
+						<p class="input-group" style="color: red;">"+62" di inputan sama dengan "08" jadi inputkan lanjutan digit nohp belakang</p>
+						<label>Email</label>
+						<input type="text" class="form-control" name="email" value="<?= $data->email; ?>" required>
+						<button type="submit" class="btn btn-primary mt-4"><i class="fas fa-save"></i> Simpan</button>
+					<?php } ?>
 				</div>
 			</form>
 		</div>
