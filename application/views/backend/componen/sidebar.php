@@ -23,11 +23,6 @@
 		<!-- Divider -->
 		<hr class="sidebar-divider">
 
-		<!-- Heading -->
-		<!-- <div class="sidebar-heading">
-			Interface
-		</div> -->
-
 		<!-- Nav Item - Pages Collapse Menu -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -42,6 +37,7 @@
 				<a class="collapse-item" href="<?= base_url('jadwal')?>">Jadwal Kegiatan</a>
 				<a class="collapse-item" href="<?= base_url('jumbotron')?>">Isi Jumbotron</a>
 				<a class="collapse-item" href="<?= base_url('data_user')?>">Data User</a>
+				<a class="collapse-item" href="<?= base_url('golongan_darah')?>">Golongan Darah</a>
 			</div>
 		</div>
 	</li>

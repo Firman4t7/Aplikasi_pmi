@@ -15,7 +15,6 @@ class Tentang extends CI_Controller {
 	{
 		$tampilData = $this->M_tentang->getDataTentang();
 
-
 		$data = array('tampil' => $tampilData);
 
 		$data['title'] = 'PMI - Provinsi Sultra';

@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_tentang extends CI_Model {
 
 
-
-	public function getDataTentang() {
+	public function getDataTentang() 
+	{
 		$this->db->select('*');
 		$this->db->from('tentang');
 		$query = $this->db->get();
@@ -13,7 +13,8 @@ class M_tentang extends CI_Model {
 	}
 
 
-	public function inputTentang($data) {
+	public function inputTentang($data) 
+	{
 
 		return $this->db->insert('tentang', $data);
 	}
@@ -27,7 +28,8 @@ class M_tentang extends CI_Model {
 	}
 
 
-	public function updateTentang($data, $id) {
+	public function updateTentang($data, $id) 
+	{
 
 		$this->db->where('id_tentang', $id);
 		$this->db->update('tentang', $data);

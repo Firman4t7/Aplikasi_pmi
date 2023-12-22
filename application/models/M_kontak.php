@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_kontak extends CI_Model {
 
 
-
 	public function getDataKontak() {
 		$this->db->select('*');
 		$this->db->from('kontak');

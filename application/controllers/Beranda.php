@@ -17,12 +17,12 @@ class Beranda extends CI_Controller {
 	public function index()
 	{
 
+		$data['jadwal'] = $this->M_jadwal->getDataJadwal3();
 
 		$data['tampil'] = $this->M_ketersediaan->getGroupData();
 		
-		
 		$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
-
+		
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 
@@ -33,32 +33,29 @@ class Beranda extends CI_Controller {
 	public function AksiInsertdatehariini()
 	{
 
-		$datetime = $this->input->post('pilih');
+		$data['jadwal'] = $this->M_jadwal->getDataJadwalFront($datetime);
 
+		$data['tampil'] = $this->M_ketersediaan->getGroupData();
 
-		if ($datetime == "") {
-			
-			redirect('Beranda');
+		$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
 
-		}else{
+		$data['title'] = 'PMI - Provinsi Sultra';
 
-			$data['jadwal'] = $this->M_jadwal->getDataJadwalFront($datetime);
-
-			$data['tampil'] = $this->M_ketersediaan->getGroupData();
-
-
-			$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
-
-
-			$data['title'] = 'PMI - Provinsi Sultra';
-
-			$this->load->view('frontend/home_tampil', $data);
-
-		}
-
-
+		$this->load->view('frontend/home_tampil', $data);
 	}
 
+
+	public function TampilJadwalKegiatan()
+	{
+
+		$data['jadwal'] = $this->M_jadwal->getDataJadwal();
+
+		$data['tampil'] = $this->M_ketersediaan->getGroupData();
+
+		$data['title'] = 'PMI - Provinsi Sultra';
+
+		$this->load->view('frontend/tampil_kegiatan', $data);
+	}
 }
 
 /* End of file Beranda.php */

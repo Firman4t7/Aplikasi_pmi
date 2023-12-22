@@ -10,10 +10,8 @@ include'componens/header.php';
 	<!-- ======= Contact Section ======= -->
 	<section id="contact" class="contact section-bg">
 		<div class="container">
-
 			<br>
 			<br>
-
 			<div class="section-title">
 				<h2>Hubungi Kami</h2>
 				<p>PMI Provinsi Sulawesi Tenggara</p>

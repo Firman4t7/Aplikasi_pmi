@@ -28,7 +28,7 @@ class Ketersediaan extends CI_Controller {
 		$data['title'] = 'PMI - Provinsi Sultra';
 
 		$this->load->view('backend/ket_darah', $data);
-		
+
 	}
 
 
@@ -40,11 +40,13 @@ class Ketersediaan extends CI_Controller {
 		$update_time = $this->input->post('update_time');
 		$update_by = $this->input->post('update_by');
 
+
 		$data = array(
 			'golongan_darah' => $gol_darah,
 			'stok_darah' => $stok_darah,
 			'update_time' => $update_time,
 			'update_by' => $update_by
+
 		);
 
 		// simpan data

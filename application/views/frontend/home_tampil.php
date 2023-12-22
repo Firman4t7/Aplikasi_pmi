@@ -107,43 +107,6 @@ include'componens/header.php';
 			<div class="row" style="width: 1210px;">
 				<div class="col-md-12" style="width: 1430px;right: 40px;">
 					<div class="icon-box table-responsive">
-						<!-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-							<thead>
-								<tr>
-									<th>No.</th>
-									<th>Waktu</th>
-									<th>Instansi</th>
-									<th>Tempat Kegiatan</th>
-									<th>Jam</th>
-									<th>Keterangan</th>
-									<th>Update By</th>
-									<th>Update At</th>
-									<th>Aksi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php 
-								$no = 1;
-								foreach ($jadwal as $row) {
-
-									?>
-									<tr>
-										<td><?= $no++; ?></td>
-										<td class="text-dark text-nowrap"><?= $row->waktu;?></td>
-										<td class="text-dark text-nowrap"><?= $row->instansi;?></td>
-										<td class="text-dark text-nowrap"><?= $row->tempat_kegiatan;?></td>
-										<td><?= $row->jam;?></td>
-										<td><?= $row->ket;?></td>
-										<td><?= $row->update_by;?></td>
-										<td><?= $row->update_at;?></td>
-										<td class="text-dark text-nowrap">
-											<a href="<?php echo base_url('jadwal_kegiatan/Detailjadwal/'). $row->id_keg; ?>" class="btn btn-primary">Detail</a>
-										</td>
-									</tr>
-
-								<?php } ?>
-							</tbody>
-						</table> -->
 						<div class="pr-10">
 							<h2>Jadwal Kegiatan</h2>
 						</div>

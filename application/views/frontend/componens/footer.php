@@ -1,11 +1,8 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
-
-
 	<div class="container d-md-flex py-4">
-
-		<div class="me-md-auto text-center text-md-start">
-			<div class="copyright">
+		<div class="me-md-auto text-md-start">
+			<div class="copyright mt-4">
 				&copy; Copyright <strong><span><a href="" target="_blank">2023</a></span></strong>. All Rights Reserved
 			</div>
 		</div>
@@ -13,8 +10,6 @@
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="modallogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,7 +48,6 @@
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url('template/template_admin/js/demo/datatables-demo.js') ?>"></script>
@@ -121,7 +115,6 @@
         });
     });
     });
-
 </script>
 
 
@@ -242,7 +235,6 @@
         });
     });
     });
-
 </script>
 
 
@@ -267,7 +259,6 @@
             $('[name="pekerjaan"]').val(ui.item.kerja);
             $('[name="tempat_lahir"]').val(ui.item.tempatlahir);
             $('[name="umur"]').val(ui.item.umur);
-            
         }
     });
 });
@@ -295,6 +286,7 @@ if (password.type === 'password') {
     }
 });
 </script>
+
 
 
 </body>

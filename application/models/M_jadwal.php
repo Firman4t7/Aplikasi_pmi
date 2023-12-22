@@ -8,8 +8,19 @@ class M_jadwal extends CI_Model {
 		$this->db->from('jadwal_kegiatan');
 		$query = $this->db->get();
 		return $query->result();
-
 	}
+
+
+	public function getDataJadwal3()
+	{
+		$this->db->select('*');
+		$this->db->from('jadwal_kegiatan');
+		$this->db->order_by('id_keg', 'ASC'); 
+		$this->db->limit(3); 
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 
 
 	public function getDataJadwalFront($datetime) {
@@ -22,7 +33,7 @@ class M_jadwal extends CI_Model {
 		$query = $this->db->get('jadwal_kegiatan');
 
 		return $query->result();
-		
+
 	}
 
 

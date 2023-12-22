@@ -56,7 +56,6 @@
 
 					<?php if ($this->session->userdata('status') != 'login' ){ ?>
 						
-						
 					<?php }else{ ?>
 
 						<li style="margin-left: 10px;">
@@ -65,8 +64,6 @@
 							</button>
 						</li>
 					<?php } ?>
-
-
 
 				</ul>
 
