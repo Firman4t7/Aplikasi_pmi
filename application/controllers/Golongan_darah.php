@@ -24,7 +24,7 @@ class Golongan_darah extends CI_Controller {
 		$tampilData = $this->M_golongan->getDataGolongan();
 
 		$data = array('tampilkan' => $tampilData);
-		
+
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 
