@@ -35,7 +35,13 @@ include 'componen/header.php'
 				<div class="form-group">
 					<label>Golongan Darah</label>
 					<input type="hidden" name="id" value="<?= $keterangan->id_ket; ?>">
-					<input type="text" class="form-control" name="golongan_darah"  value="<?= $keterangan->golongan_darah; ?>">
+					<select class="form-control" name="golongan_darah" required>
+						<?php 
+						foreach ($golongan as $data) {
+							?>
+							<option value="<?= $data->id_gol?>" <?= ($data->id_gol == $keterangan->id_gol) ? 'selected' : '' ?>><?= $data->nama_golongan?></option>
+						<?php } ?>
+					</select>
 					<label>Stok Darah</label>
 					<input type="text" class="form-control" name="stok_darah"  value="<?= $keterangan->stok_darah; ?>">
 					<label for="">Update Time</label>

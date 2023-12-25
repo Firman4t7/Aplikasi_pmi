@@ -7,6 +7,7 @@ class Ketersediaan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('M_ketersediaan');
+		$this->load->model('M_golongan');
 		$this->load->model('front/M_datapendonor');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -21,9 +22,14 @@ class Ketersediaan extends CI_Controller {
 	public function index()
 	{
 
+		// ketersediaan
 		$tampilData = $this->M_ketersediaan->getDataKetersediaan();
 
 		$data = array('tampil' => $tampilData);
+
+
+		$data['golongan'] = $this->M_golongan->getDataGolongan();
+
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 
@@ -61,6 +67,8 @@ class Ketersediaan extends CI_Controller {
 		$editkets = $this->M_ketersediaan->getTampilket($id);
 
 		$data = array('keterangan' => $editkets);
+
+		$data['golongan'] = $this->M_golongan->getDataGolongan();
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 

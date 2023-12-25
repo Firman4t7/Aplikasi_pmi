@@ -21,7 +21,7 @@ class Donor_darah extends CI_Controller {
 
 	public function index()
 	{	
-		$data['tampil'] = $this->M_donor_darah->get_ketersediaanD();
+		//$data['tampil'] = $this->M_donor_darah->get_ketersediaanD();
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 

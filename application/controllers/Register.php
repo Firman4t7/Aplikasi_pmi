@@ -53,6 +53,12 @@ class Register extends CI_Controller {
 		$this->db->insert('user',$data);
 	}
 
+
+	public function MockupRegisterNew()
+	{
+		$this->load->view('frontend/mock');
+	}
+
 }
 
 /* End of file Register.php */

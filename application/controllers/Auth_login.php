@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth_login extends CI_Controller {
 
-	function __construct(){
+	function __construct()
+	{
 		
 		parent::__construct();		
 		$this->load->model('front/M_login_user');
@@ -22,19 +23,21 @@ class Auth_login extends CI_Controller {
 	public function aksi_login()
 	{
 
-		$username = $this->input->post('username');
+		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 
 		$where = array(
-			'username' => $username,
+			'email' => $email,
 			'password' => md5($password)
 		);
 
-		$cek = $this->M_login_user->cek_login("user",$where)->num_rows();
-		if($cek > 0){
+		$user = $this->M_login_user->cek_login("user",$where)->row();
+
+		if ($user) {
 
 			$data_session = array(
-				'name' => $username,
+				'id_user' => $user->id_user,
+				'name' => $email,
 				'status' => "login"
 			);
 
@@ -48,12 +51,13 @@ class Auth_login extends CI_Controller {
 		}else{
 
 			echo "<script>
-			alert('username dan Password Salah!');
+			alert('Email dan Password Salah!');
 			window.location='" . site_url('auth_login') . "'
 			</script>";
 		}
 
 	}
+
 
 	public function logout_user(){
 		$this->session->unset_userdata('nama'); 

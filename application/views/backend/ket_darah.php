@@ -19,7 +19,6 @@
 					</button>
 				</div>
 			</div>
-
 		</div>
 	<?php endif; ?>
 
@@ -67,7 +66,7 @@
 							?>
 							<tr>
 								<td><?= $no++; ?></td>
-								<td><?= $data->golongan_darah; ?></td>
+								<td><?= $data->nama_golongan; ?></td>
 								<td><?= $data->stok_darah; ?></td>
 								<td><?= $data->update_time; ?></td>
 								<td><?= $data->update_by; ?></td>
@@ -102,7 +101,14 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="">Golongan Darah</label>
-						<input type="text" class="form-control"  name="golongan_darah" required>
+						<select class="form-control" name="golongan_darah" required>
+							<option value="">- Pilih -</option>
+							<?php 
+							foreach ($golongan as $data) {
+								?>
+								<option value="<?= $data->id_gol?>"><?= $data->nama_golongan?></option>
+							<?php } ?>
+						</select>
 					</div> 
 					<div class="form-group">
 						<label for="">Stok Darah</label>

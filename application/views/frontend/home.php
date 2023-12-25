@@ -6,7 +6,7 @@ include'componens/header.php';
 ?>
 
 
-<style>
+<!-- <style>
 	.text-center
 	{
 		width: 90px;
@@ -332,7 +332,235 @@ include'componens/header.php';
 	}
 
 
+	/*data box*/
+	.data-box {
+		border: 2px solid white;  
+		padding: 10px;  
+		background-color: none;  
+		border-radius: 8px;  
+	}
+
+	.data-box p {
+		margin: 0; 
+		color: white; 
+	}
+
+
+
+</style> -->
+
+
+<style>
+	/* Common styles for both desktop and mobile */
+	.text-center {
+		width: 90px;
+	}
+
+	.icon-box {
+		overflow-x: hidden;
+		border: 2px solid white;
+		padding: 10px;
+		border-radius: 8px;
+		height: 100%; 
+	}
+
+	.panel_tgl {
+		margin-bottom: 20px;
+		background-color: #ffffff;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+		text-align: center;
+		width: 77px;
+	}
+
+	.panel-heading-tgl {
+		padding: 10px 15px;
+		border-bottom: 1px solid transparent;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		color: white;
+		background-color: #f5f5f5;
+		border-color: #ddd;
+		background-color: #428bca;
+		color: #fff;
+		border-bottom: 1px solid transparent;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+
+	.media-left,
+	.media-body {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	.media-list {
+		padding-left: 0;
+		list-style: none;
+	}
+
+	.media {
+		margin-top: 15px;
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.panel-body-tgl {
+		padding: 10px;
+	}
+
+	.panel {
+		margin-bottom: 20px;
+		background-color: #ffffff;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	}
+
+	.panel-heading {
+		padding: 10px 15px;
+		border-bottom: 1px solid transparent;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		color: white;
+		background-color: #f5f5f5;
+		border-color: #ddd;
+		background-color: #428bca;
+	}
+
+	.panel-title {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 16px;
+	}
+
+	.panel-body {
+		padding: 15px;
+		box-sizing: border-box;
+	}
+
+	.panel-footer {
+		padding: 10px 15px;
+		background-color: #f5f5f5;
+		border-top: 1px solid #ddd;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+	}
+
+	.btn_more {
+		display: inline-block;
+		padding: 6px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		cursor: pointer;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		color: #fff;
+		background-color: #337ab7;
+		border-color: #2e6da4;
+	}
+
+	.btn_more:hover,
+	.btn_more:focus {
+		color: #fff;
+		background-color: #286090;
+		border-color: #204d74;
+	}
+
+	/* Warna Latar Belakang - Biru */
+	.icon-box.hijau {
+		background-color: green;
+		color: white;
+		/* Warna teks putih untuk kontras */
+	}
+
+	/* Warna Latar Belakang - Merah */
+	.icon-box.merah {
+		background-color: red;
+		color: white;
+		/* Warna teks putih untuk kontras */
+	}
+
+	/* Gaya Teks */
+	h4 {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-size: 16px;
+		color: #777;
+	}
+
+	/*data box*/
+	.data-box {
+		border: 2px solid white;
+		padding: 10px;
+		background-color: none;
+		border-radius: 8px;
+		transition: background-color 0.3s;
+	}
+
+	.data-box p {
+		margin: 0;
+		color: white;
+	}
+
+	.data-box:hover {
+
+		background-color: #808080;
+		cursor: pointer;
+	}
+
+
+
+
+
+	/* Styles for devices with a maximum width of 767px (Mobile) */
+	@media (max-width: 767px) {
+		.col-md-11 {
+			width: 100%;
+		}
+
+		/* Add additional mobile styles here */
+	}
+
+	/* Styles for devices with a minimum width of 768px (Desktop) */
+	@media (min-width: 768px) {
+		.col-md-11 {
+			width: 100%;
+			margin-right: 10px;
+		}
+
+		/* Add additional desktop styles here */
+	}
+
+	.fixed - element {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+
+
+	.media-heading{
+
+		margin-left: none;
+	}
+
+
+
 </style>
+
 
 
 <!-- ======= Hero Section ======= -->
@@ -396,13 +624,13 @@ include'componens/header.php';
 
 	<!-- ======= What We Do Section ======= -->
 	<section id="what-we-do" class="what-we-do" style="padding:19px;">
-		<div class="container">
+		<div class="container fixed-element">
 			<div class="pr-10">
 				<h2>Data Ketersediaan Darah</h2>
 				<p>Update Terakhir : <?= date('d-m-Y H:i:s');?> </p>
 			</div>
 
-			<div class="row">
+			<div class="row fixed-element">
 				<?php 
 				foreach ($tampil as $data) {
 
@@ -410,15 +638,26 @@ include'componens/header.php';
 					$warna_latar = ($data->stok_darah > 9) ? 'hijau' : 'merah';
 					?>
 
-					<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+					<div class="col-lg-3 col-md-6 align-items-stretch">
 						<div class="icon-box <?= $warna_latar; ?>">
 							<div class="icon">
 								<i class="fas fa-hospital"></i>
 							</div>
-							<h4>Golongan Darah (<?= $data->golongan_darah; ?>)</h4>
-							<p style="color: white;" >Stok Darah : <?= $data->stok_darah; ?> </p>
+							<h4 class="fixed-element">Golongan Darah (<?= $data->nama_golongan; ?>)</h4>
+
+							<div class="data-box fixed-element">
+								<p>WB: <?= $data->wb; ?></p>
+								<p>PRC: <?= $data->prc; ?></p>
+								<p>TC: <?= $data->tc; ?></p>
+								<p>Belum Serologi: <?= $data->belum_serologi; ?></p>
+							</div>
+							<br>
+							<h5 style="color: white;">Stok Darah : <?= $data->stok_darah; ?> </h5>
 						</div>
 					</div>
+
+
+
 
 				<?php } ?>
 
@@ -426,6 +665,8 @@ include'componens/header.php';
 			</div>
 		</div>
 	</section>
+
+
 
 	<!-- ======= Services Section ======= -->
 	<section id="services" class="services section-bg">
@@ -438,7 +679,7 @@ include'componens/header.php';
 						</div>
 
 						<!-- panel -->
-						<div class="col-md-11" style="right: -70px">
+						<div class="col-md-11">
 							<div class="panel-body">
 								<div class="panel">
 									<div class="panel-heading">
@@ -492,3 +733,4 @@ include'componens/header.php';
 </main><!-- End #main -->
 
 <?php include'componens/footer.php';?>
+

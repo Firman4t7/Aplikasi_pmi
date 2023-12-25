@@ -5,6 +5,44 @@ include'componens/header.php';
 
 ?>
 
+<style>
+	#btn_google {
+		border: 2px solid #3498db; /* Warna garis tepi */
+		text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+		border-radius: 5px; /* Membuat sudut border menjadi melengkung */
+	}
+
+
+
+
+	.google-btn {
+		align-items: center;
+		padding: 10px 20px;
+		background-color: #fff;
+		border: 2px solid #4285f4; /* Google Blue */
+		color: #4285f4; /* Google Blue */
+		font-size: 14px;
+		font-weight: bold;
+		text-decoration: none;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+	}
+
+	.google-btn:hover {
+		background-color: #f0f0f0;
+	}
+
+	.google-icon {
+		margin-top: 30px;
+		border-right-width: 20px;
+		margin-right: 10px;
+		width: 20px;
+		height: 20px;
+		
+	}
+
+
+</style>
 
 <main id="main">
 	<br>
@@ -19,8 +57,8 @@ include'componens/header.php';
 							<h2>Form Login User</h2>
 							<br>
 							<div class="form-group">
-								<label style="float: left;"><b>username</b></label>
-								<input type="text" class="form-control" name="username"  placeholder="Masukan Username" required="">
+								<label style="float: left;"><b>Email</b></label>
+								<input type="email" class="form-control" name="email"  placeholder="Masukan Username" required="">
 							</div>
 							<div class="form-group">
 								<label style="float: left;"><b>Password</b></label>
@@ -33,10 +71,16 @@ include'componens/header.php';
 								</span>
 							</div>
 							<hr>
-							<div class="form-group">
+							<div class="form-group ml-5">
+								<a href="" class="btn btn-danger" style="float: right;margin-left: 10px;"><i class="fab fa-google-plus-g"></i>&nbsp;&nbsp;Sign With Goggle</a>
+							</div>
+							<div class="form-group ml-5">
 								<button type="submit" class="btn btn-primary" style="float: right;"><i class="fas fa-user-plus"></i> Login</button>
+								
 							</div>
 						</form>
+
+
 						<br>
 						<br>
 					</div>
@@ -44,6 +88,9 @@ include'componens/header.php';
 			</div>
 		</div>
 	</section>
+
+	
+
 
 
 </main><!-- End #main -->

@@ -4,10 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_ketersediaan extends CI_Model {
 	
 	public function getDataKetersediaan() {
+		// $this->db->select('*');
+		// $this->db->from('ketersediaan_darah');
+		// $query = $this->db->get();
+		// return $query->result();
+
 		$this->db->select('*');
 		$this->db->from('ketersediaan_darah');
+		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
 		$query = $this->db->get();
 		return $query->result();
+
+
 	}
 
 	public function inputKet($data) {
@@ -17,9 +25,14 @@ class M_ketersediaan extends CI_Model {
 	}
 
 	public function getTampilket($id) {
-		$this->db->where('id_ket', $id);
-		$query = $this->db->get('ketersediaan_darah');
+
+		$this->db->select('*');
+		$this->db->from('ketersediaan_darah');
+		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		$this->db->where('ketersediaan_darah.id_ket', $id);
+		$query = $this->db->get();
 		return $query->row();
+
 	}
 
 
@@ -38,18 +51,24 @@ class M_ketersediaan extends CI_Model {
 
 	public function getGroupData()
 	{
+
 		// $this->db->select('golongan_darah, SUM(stok_darah) as stok_darah', FALSE);
-		// $this->db->from('ketersediaan_darah');
-		// $this->db->group_by('golongan_darah');
-		// $this->db->order_by('golongan_darah', 'ASC'); 
-		// return $result = $this->db->get()->result();
+// $this->db->from('ketersediaan_darah');
+// $this->db->group_by('golongan_darah');
+// 		$this->db->order_by('id_ket', 'ASC'); // Menambahkan pengurutan berdasarkan abjad (ascending)
+// 		return $result = $this->db->get()->result();
 
 
-		$this->db->select('golongan_darah, SUM(stok_darah) as stok_darah', FALSE);
+		$this->db->select('gol_darah.nama_golongan, gol_darah.wb, gol_darah.prc, gol_darah.tc, gol_darah.belum_serologi, SUM(ketersediaan_darah.stok_darah) as stok_darah', FALSE);
 		$this->db->from('ketersediaan_darah');
-		$this->db->group_by('golongan_darah');
-		$this->db->order_by('id_ket', 'ASC'); // Menambahkan pengurutan berdasarkan abjad (ascending)
-		return $result = $this->db->get()->result();
+		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		$this->db->group_by('gol_darah.id_gol');
+		$this->db->order_by('gol_darah.id_gol', 'ASC'); // Assuming id_gol is the primary key in gol_darah
+		$result = $this->db->get()->result();
+		return $result;
+
+
+
 
 
 	}

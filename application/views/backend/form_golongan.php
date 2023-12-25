@@ -54,7 +54,6 @@
 						$no = 1;
 						foreach ($tampilkan as $data) {
 
-
 							?>
 							<tr>
 								<td><?= $no++;?></td>
@@ -64,8 +63,8 @@
 								<td><?= $data->tc; ?></td>
 								<td><?= $data->belum_serologi; ?></td>
 								<td>
-									<a href="" class="btn btn-warning">Edit</a>
-									<a href="" class="btn btn-danger">Delete</a>
+									<a href="<?= base_url('golongan_darah/form_edit/').$data->id_gol; ?>" class="btn btn-warning">Edit</a>
+									<a href="<?= base_url('golongan_darah/aksiDeleteGol/').$data->id_gol; ?>" onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data ini!')" class="btn btn-danger">Delete</a>
 								</td>
 							</tr>
 						<?php } ?>

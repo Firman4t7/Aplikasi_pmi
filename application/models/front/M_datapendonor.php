@@ -7,7 +7,7 @@ class M_datapendonor extends CI_Model {
 
 		$this->db->select('*');
 		$this->db->from('form_pendonor');
-		$this->db->join('user', 'form_pendonor.user_id = user.username');
+		$this->db->join('user', 'form_pendonor.user_id = user.id_user');
 		$query = $this->db->get();
 		return $query->result();
 
@@ -20,7 +20,7 @@ class M_datapendonor extends CI_Model {
 		$this->db->from('user');
 		$this->db->where('user.umur', $umur);
 		$this->db->where('user.jenis_kelamin', $jenis_kelamin);
-		$this->db->join('form_pendonor', 'form_pendonor.user_id = user.username');
+		$this->db->join('form_pendonor', 'form_pendonor.user_id = user.id_user');
 		$this->db->where('form_pendonor.golongan_darah', $golongan_darah); 
 		$query = $this->db->get();
 
