@@ -41,7 +41,6 @@
 							<th>Waktu</th>
 							<th>Instansi</th>
 							<th>Tempat Kegiatan</th>
-							<th>Jam</th>
 							<th>Keterangan</th>
 							<th>Update By</th>
 							<th>Update At</th>
@@ -50,18 +49,14 @@
 					</thead>
 					<tbody>
 						<?php
-
 						$no = 1;
 						foreach ($tampil as $key => $data) {
-
-
 							?>
 							<tr>
 								<td><?= $no++; ?></td>
 								<td><?= $data->waktu; ?></td>
 								<td><?= $data->instansi; ?></td>
 								<td><?= $data->tempat_kegiatan; ?></td>
-								<td><?= $data->jam; ?></td>
 								<td><?= $data->ket; ?></td>
 								<td><?= $data->update_by; ?></td>
 								<td><?= $data->update_at; ?></td>
@@ -93,31 +88,27 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="">Waktu</label>
-						<input type="text" class="form-control"  name="waktu" required>
+						<input type="datetime-local" class="form-control"  name="waktu" placeholder="Masukan Waktu" required>
 					</div> 
 					<div class="form-group">
 						<label for="">Instansi</label>
-						<input type="text" class="form-control"  name="instansi" required>
+						<input type="text" class="form-control"  name="instansi" placeholder="Masukan Instansi" required>
 					</div>
 					<div class="form-group">
 						<label for="">Tempat Kegiatan</label>
-						<input type="text" class="form-control"  name="tempat_kegiatan" required>
-					</div>
-					<div class="form-group">
-						<label for="">Jam</label>
-						<input type="time" class="form-control"  name="jam" required>
+						<input type="text" class="form-control"  name="tempat_kegiatan" placeholder="Masukan Tempat Kegiatan" required>
 					</div>
 					<div class="form-group">
 						<label for="">Keterangan</label>
-						<textarea class="form-control" name="ket" required></textarea>
+						<textarea class="form-control" name="ket" placeholder="Masukan Keterangan" required></textarea>
 					</div> 
 					<div class="form-group">
 						<label for="">Update By</label>
-						<input type="text" class="form-control"  name="update_by" required>
+						<input type="text" class="form-control"  name="update_by" placeholder="Masukan Update By" required>
 					</div>
 					<div class="form-group">
 						<label for="">Update at</label>
-						<input type="datetime-local" class="form-control"  name="update_at" required>
+						<input type="time" class="form-control"  name="update_at" id="update_at"  placeholder="Masukan Update At" readonly>
 					</div> 
 				</div>
 				<div class="modal-footer">
@@ -128,6 +119,22 @@
 		</div>
 	</div>
 </div>
+
+<script>
+    // Mendapatkan elemen input time berdasarkan id
+    var timeInput = document.getElementById('update_at');
+
+    // Mendapatkan jam dan menit saat ini
+    var now = new Date();
+    var hours = String(now.getHours()).padStart(2, '0');
+    var minutes = String(now.getMinutes()).padStart(2, '0');
+
+    // Format string sesuai dengan yang diterima oleh input time (HH:mm)
+    var formattedTime = `${hours}:${minutes}`;
+
+    // Set nilai input time ke nilai waktu saat ini
+    timeInput.value = formattedTime;
+</script>
 
 
 <?php include 'componen/footer.php'?>

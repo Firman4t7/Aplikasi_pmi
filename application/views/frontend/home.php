@@ -6,351 +6,8 @@ include'componens/header.php';
 ?>
 
 
-<!-- <style>
-	.text-center
-	{
-		width: 90px;
-	}
-
-	.icon-box 
-	{
-		overflow-x: hidden;
-	}
-
-
-	@media (max-width: 767px) {
-		.col-md-11 {
-			width: 100%;
-			margin-right: 10px;
-		}
-
-
-
-		.panel_tgl {
-			margin-bottom: 20px;
-			background-color: #ffffff;
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-			text-align: center;
-			width: 77px;
-		}
-
-		.panel-heading-tgl {
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			color: white;
-			background-color: #f5f5f5;
-			border-color: #ddd;
-			background-color: #428bca;
-			color: #fff;
-			background-color: #428bca;
-			border-color: #428bca
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px
-
-		}
-
-
-		.media-left{
-			display: table-cell;
-			vertical-align: top;
-		}
-
-		.media-list {
-			padding-left: 0;
-			list-style: none
-		}
-
-
-		.media-body{
-			display: table-cell;
-			vertical-align: top;
-			-ms-flex: 1;
-			flex: 1;
-			margin-top: 20px;
-		}
-
-		.media {
-			margin-top: 15px;
-			display: -ms-flexbox;
-			display: flex;
-			-ms-flex-align: start;
-			align-items: flex-start;
-		}
-
-		.panel-body-tgl {
-			padding: 10px;
-		}
-
-
-
-		/* Panel Style */
-		.panel {
-			margin-bottom: 20px;
-			background-color: #ffffff;
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-		}
-
-		.panel-heading {
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			color: white;
-			background-color: #f5f5f5;
-			border-color: #ddd;
-			background-color: #428bca;
-
-		}
-
-		.panel-title {
-			margin-top: 0;
-			margin-bottom: 0;
-			font-size: 16px;
-		}
-
-		.panel-body {
-			padding: 15px;
-			box-sizing:border-box;
-		}
-
-		/* Optional: Panel Footer Style */
-		.panel-footer {
-			padding: 10px 15px;
-			background-color: #f5f5f5;
-			border-top: 1px solid #ddd;
-			border-bottom-left-radius: 3px;
-			border-bottom-right-radius: 3px;
-		}
-
-		/* Optional: Primary Button Style */
-		.btn_more {
-			display: inline-block;
-			padding: 6px 12px;
-			margin-bottom: 0;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 1.42857143;
-			text-align: center;
-			white-space: nowrap;
-			vertical-align: middle;
-			cursor: pointer;
-			background-image: none;
-			border: 1px solid transparent;
-			border-radius: 4px;
-			color: #fff;
-			background-color: #337ab7;
-			border-color: #2e6da4;
-		}
-
-		.btn_more:hover,
-		.btn_more:focus {
-			color: #fff;
-			background-color: #286090;
-			border-color: #204d74;
-		}
-
-	}
-
-
-	@media (min-width: 768px) {
-		.col-md-11 {
-			width: 100%;
-			margin-right: 10px;
-		}
-
-
-
-		.panel_tgl {
-			margin-bottom: 20px;
-			background-color: #ffffff;
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-			text-align: center;
-			width: 77px;
-		}
-
-		.panel-heading-tgl {
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			color: white;
-			background-color: #f5f5f5;
-			border-color: #ddd;
-			background-color: #428bca;
-			color: #fff;
-			background-color: #428bca;
-			border-color: #428bca
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px
-
-		}
-
-
-		.media-left{
-			display: table-cell;
-			vertical-align: top;
-		}
-
-		.media-list {
-			padding-left: 0;
-			list-style: none
-		}
-
-
-		.media-body{
-			display: table-cell;
-			vertical-align: top;
-			-ms-flex: 1;
-			flex: 1;
-			margin-top: 20px;
-		}
-
-		.media {
-			margin-top: 15px;
-			display: -ms-flexbox;
-			display: flex;
-			-ms-flex-align: start;
-			align-items: flex-start;
-		}
-
-		.panel-body-tgl {
-			padding: 10px;
-		}
-
-
-
-		/* Panel Style */
-		.panel {
-			margin-bottom: 20px;
-			background-color: #ffffff;
-			border: 1px solid #ddd;
-			border-radius: 4px;
-			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-		}
-
-		.panel-heading {
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			color: white;
-			background-color: #f5f5f5;
-			border-color: #ddd;
-			background-color: #428bca;
-
-		}
-
-		.panel-title {
-			margin-top: 0;
-			margin-bottom: 0;
-			font-size: 16px;
-		}
-
-		.panel-body {
-			padding: 15px;
-			box-sizing:border-box;
-		}
-
-		/* Optional: Panel Footer Style */
-		.panel-footer {
-			padding: 10px 15px;
-			background-color: #f5f5f5;
-			border-top: 1px solid #ddd;
-			border-bottom-left-radius: 3px;
-			border-bottom-right-radius: 3px;
-		}
-
-		/* Optional: Primary Button Style */
-		.btn_more {
-			display: inline-block;
-			padding: 6px 12px;
-			margin-bottom: 0;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 1.42857143;
-			text-align: center;
-			white-space: nowrap;
-			vertical-align: middle;
-			cursor: pointer;
-			background-image: none;
-			border: 1px solid transparent;
-			border-radius: 4px;
-			color: #fff;
-			background-color: #337ab7;
-			border-color: #2e6da4;
-		}
-
-		.btn_more:hover,
-		.btn_more:focus {
-			color: #fff;
-			background-color: #286090;
-			border-color: #204d74;
-		}
-
-	}
-
-
-
-
-	/* Warna Latar Belakang - Biru */
-	.icon-box.hijau {
-		background-color: green;
-		color: white; /* Warna teks putih untuk kontras */
-	}
-
-	/* Warna Latar Belakang - Merah */
-	.icon-box.merah {
-		background-color: red;
-		color: white; /* Warna teks putih untuk kontras */
-	}
-
-	/* Gaya Teks */
-	h4 {
-		font-size: 20px;
-		margin-bottom: 10px;
-	}
-
-	p {
-		font-size: 16px;
-		color: #777;
-	}
-
-
-	/*data box*/
-	.data-box {
-		border: 2px solid white;  
-		padding: 10px;  
-		background-color: none;  
-		border-radius: 8px;  
-	}
-
-	.data-box p {
-		margin: 0; 
-		color: white; 
-	}
-
-
-
-</style> -->
-
-
 <style>
+
 	/* Common styles for both desktop and mobile */
 	.text-center {
 		width: 90px;
@@ -523,8 +180,6 @@ include'componens/header.php';
 
 
 
-
-
 	/* Styles for devices with a maximum width of 767px (Mobile) */
 	@media (max-width: 767px) {
 		.col-md-11 {
@@ -551,13 +206,74 @@ include'componens/header.php';
 	}
 
 
-
 	.media-heading{
 
 		margin-left: none;
 	}
 
 
+	/* Custom CSS for Countdown Layout */
+
+	.time-date {
+		text-align: right;
+	}
+
+	.countd-dd {
+		display: inline-block;
+		margin-right: 5px; /* Sesuaikan jarak kanan sesuai kebutuhan Anda */
+	}
+
+
+	.tt-label{
+		color: white;
+	}
+
+	.countd-t-hh{
+		color: white;
+	}
+
+	.countd-t-mm{
+		color: white;
+	}
+
+	.countd-t-ss{
+		color: white;
+	}
+
+
+
+	/*coutdown*/
+
+	#countdown {
+		display: flex;
+		justify-content: space-around;
+		max-width: 600px;
+		margin: 50px auto;
+		background-color: #333;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	}
+
+	.countdown-item {
+		text-align: center;
+		color: #fff;
+	}
+
+	.countdown-item span {
+		display: block;
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	.countdown-item p {
+		font-size: 0.8em;
+	}
+
+	#countdown-container {
+		text-align: center;
+		font-family: Arial, sans-serif;
+	}
 
 </style>
 
@@ -626,7 +342,7 @@ include'componens/header.php';
 	<section id="what-we-do" class="what-we-do" style="padding:19px;">
 		<div class="container fixed-element">
 			<div class="pr-10">
-				<h2>Data Ketersediaan Darah</h2>
+				<h2 style="color: black;">Data Ketersediaan Darah</h2>
 				<p>Update Terakhir : <?= date('d-m-Y H:i:s');?> </p>
 			</div>
 
@@ -655,13 +371,70 @@ include'componens/header.php';
 							<h5 style="color: white;">Stok Darah : <?= $data->stok_darah; ?> </h5>
 						</div>
 					</div>
-
-
-
-
 				<?php } ?>
+			</div>
+		</div>
+	</section>
 
 
+
+	<!-- counter -->
+	<section id="what-we-do" class="what-we-do" style="padding:19px;">
+
+		<br>
+		<br>
+		<div class="pr-10">
+			<h2 style="color: black;" align="center"><u>Halaman Counter</u></h2>
+		</div>
+
+		<br>
+		<br>
+
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+		<!-- Custom Files -->
+		<link type="text/css" rel="stylesheet" href="<?= base_url('template_front/counter/')?>src/css/particles.css">
+		<link type="text/css" rel="stylesheet" href="<?= base_url('template_front/counter/')?>src/css/main.css?v=0.04">
+		<script type="text/javascript" src="<?= base_url('template_front/counter/')?>src/js/countdown.js?v=0.04"></script>
+
+		<div class="bg">	
+
+			<div class="conrainer">
+				<div class="col container-fluid main-subscribe-cont mt-5">
+					<div class="row soon-title">
+						<strong style="font-size: 50px;" align="center" id="instansi_saja"></strong>
+					</div>
+				</div>
+				<div class="row">
+					<div id="countdown">
+						<div class="countdown-item">
+							<span id="months">00</span>
+							<p>Months</p>
+						</div>
+						<div class="countdown-item">
+							<span id="days">00</span>
+							<p>Days</p>
+						</div>
+						<div class="countdown-item">
+							<span id="hours">00</span>
+							<p>Hours</p>
+						</div>
+						<div class="countdown-item">
+							<span id="minutes">00</span>
+							<p>Minutes</p>
+						</div>
+						<div class="countdown-item">
+							<span id="seconds">00</span>
+							<p>Seconds</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col container-fluid main-subscribe-cont">
+						<strong style="font-size: 50px;" id="judul_kegiatan"></strong>
+						<br>
+						<p id="keras"></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -675,7 +448,7 @@ include'componens/header.php';
 				<div class="col-md-12">
 					<div class="icon-box table-responsive">
 						<div class="pr-10 mb-4">
-							<h2 align="center">Jadwal Kegiatan</h2>
+							<h2 style="color: black;" align="center">Jadwal Kegiatan</h2>
 						</div>
 
 						<!-- panel -->
@@ -731,6 +504,9 @@ include'componens/header.php';
 		</div>
 	</section><!-- End Services Section -->
 </main><!-- End #main -->
+
+
+
 
 <?php include'componens/footer.php';?>
 

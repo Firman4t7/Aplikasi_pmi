@@ -39,7 +39,6 @@ class Jadwal extends CI_Controller {
 		$wkt = $this->input->post('waktu');
 		$ins = $this->input->post('instansi');
 		$tempat = $this->input->post('tempat_kegiatan');
-		$jm = $this->input->post('jam');
 		$ktg = $this->input->post('ket');
 		$update_by = $this->input->post('update_by');
 		$update_at = $this->input->post('update_at');
@@ -49,12 +48,10 @@ class Jadwal extends CI_Controller {
 			'waktu' => $wkt,
 			'instansi' => $ins,
 			'tempat_kegiatan' => $tempat,
-			'jam' => $jm,
 			'ket' => $ktg,
 			'update_by' => $update_by,
 			'update_at' => $update_at
 		);
-
 
 
 		// simpan data
@@ -85,7 +82,6 @@ class Jadwal extends CI_Controller {
 		$wkt = $this->input->post('waktu');
 		$ins = $this->input->post('instansi');
 		$tempat = $this->input->post('tempat_kegiatan');
-		$jm = $this->input->post('jam');
 		$ktg = $this->input->post('ket');
 		$update_by = $this->input->post('update_by');
 		$update_at = $this->input->post('update_at');
@@ -95,12 +91,11 @@ class Jadwal extends CI_Controller {
 			'waktu' => $wkt,
 			'instansi' => $ins,
 			'tempat_kegiatan' => $tempat,
-			'jam' => $jm,
 			'ket' => $ktg,
 			'update_by' => $update_by,
 			'update_at' => $update_at
 		);	
-
+		
 
 		//print_r($data);
 		$update = $this->M_jadwal->updateJadwal($data, $id);

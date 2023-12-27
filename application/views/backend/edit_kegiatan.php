@@ -46,10 +46,6 @@ include 'componen/header.php'
 						<input type="text" class="form-control"  name="tempat_kegiatan" value="<?= $jadwal->tempat_kegiatan; ?>">
 					</div>
 					<div class="form-group">
-						<label for="">Jam</label>
-						<input type="time" class="form-control"  name="jam" value="<?= $jadwal->jam; ?>">
-					</div>
-					<div class="form-group">
 						<label for="">Keterangan</label>
 						<textarea class="form-control" name="ket"><?= $jadwal->ket; ?></textarea>
 					</div> 

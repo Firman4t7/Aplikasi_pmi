@@ -23,6 +23,17 @@ class M_jadwal extends CI_Model {
 
 
 
+	public function getDataJadwal1()
+	{
+		$this->db->select('*');
+		$this->db->from('jadwal_kegiatan');
+		$this->db->order_by('id_keg', 'ASC'); 
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+
+
 	public function getDataJadwalFront($datetime) {
 
 
@@ -35,11 +46,6 @@ class M_jadwal extends CI_Model {
 		return $query->result();
 
 	}
-
-
-
-
-
 
 	public function inputJad($data) {
 

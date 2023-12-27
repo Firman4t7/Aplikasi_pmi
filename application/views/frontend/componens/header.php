@@ -51,18 +51,29 @@
 					<li><a class="nav-link scrollto" href="<?= base_url('Tentang') ?>">Tentang</a></li>
 					<li><a class="nav-link scrollto" href="<?= base_url('Jadwal_kegiatan') ?>">Jadwal Kegiatan</a></li>
 					<li><a class="nav-link scrollto" href="<?= base_url('Donor_darah')?>">Donor Darah</a></li>
-					<li><a class="nav-link scrollto" href="<?= base_url('Data_pendonor')?>">Data Pendonor</a></li>
 					<li><a class="nav-link scrollto" href="<?= base_url('hubungi_kami')?>">Hubungi Kami</a></li>
 
 					<?php if ($this->session->userdata('status') != 'login' ){ ?>
 						
 					<?php }else{ ?>
 
-						<li style="margin-left: 10px;">
+						<!-- <li style="margin-left: 10px;">
 							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modallogout">
 								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
 							</button>
+						</li> -->
+
+						<li style="margin-left: 20px;" class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Actions
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalGantiPassword">Ganti Password</a></li>
+								<li><a class="dropdown-item" type="button"  href="#" data-bs-toggle="modal" data-bs-target="#modallogout">Logout</a></li>
+							</ul>
 						</li>
+
+
 					<?php } ?>
 
 				</ul>

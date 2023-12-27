@@ -6,69 +6,110 @@ include'componens/header.php';
 ?>
 
 
+<style>
+	.agenda {  
+
+	}
+
+	/* Dates */
+	.agenda .agenda-date { width: 170px; }
+	.agenda .agenda-date .dayofmonth {
+		width: 40px;
+		font-size: 36px;
+		line-height: 36px;
+		float: left;
+		text-align: right;
+		margin-right: 10px; 
+	}
+	.agenda .agenda-date .shortdate {
+		font-size: 0.75em; 
+	}
+
+
+	/* Times */
+	.agenda .agenda-time { width: 140px; } 
+
+
+	/* Events */
+	.agenda .agenda-events {  } 
+	.agenda .agenda-events .agenda-event {  } 
+
+	@media (max-width: 767px) {
+
+	}
+</style>
+
+
 <main id="main">
 	<br>
 	<!-- ======= Services Section ======= -->
 	<section id="services" class="services section-bg">
 		<div class="container">
+
 			<div class="row">
-				<!-- <div class="col-lg-6">
-					<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FJakarta&src=cG1pc3VsdHJhNDBAZ21haWwuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aWQuaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039BE5&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="450" height="400" frameborder="0" scrolling="no"></iframe>
-				</div> -->
-
-				<!-- <div class="col-lg-6">
-				</div> -->
-
 				<div class="">
 					<br>
 					<h2>Jadwal Kegiatan</h2>
 				</div>
 
-				<div class="row">
-					<div class="col-md-12 table-responsive" style="">
-						<div class="">
-							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-								<thead>
+				<hr/>
+
+				<div class="agenda table-responsive">
+					<div class="">
+						<table class="table table-condensed table-bordered">
+							<thead>
+								<tr>
+									<th>Tanggal</th>
+									<th>Waktu</th>
+									<th>Keterangan</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Single event in a single day -->
+
+
+								<?php 
+								$no = 1;
+								foreach ($jadwal as $row) {
+
+									$dateTime = strtotime($row->waktu); 
+									$tanggal = date('d', $dateTime); 
+									$tahun = date('Y', $dateTime);
+									$tanggal_semua = date('Y-m-d', $dateTime); 
+									$jam = date('H:i:s', $dateTime); 
+									$jam_am_pm = date('g:i A', $dateTime); 
+
+    								// Menampilkan nama bulan lengkap
+									$nama_bulan = date('F', $dateTime);
+
+
+									?>
+
 									<tr>
-										<th>No.</th>
-										<th>Waktu</th>
-										<th>Instansi</th>
-										<th>Tempat Kegiatan</th>
-										<th>Jam</th>
-										<th>Keterangan</th>
-										<th>Update By</th>
-										<th>Update At</th>
-										<th>Aksi</th>
+										<td class="agenda-date" class="active" rowspan="1">
+											<div class="dayofmonth"><?= $tanggal; ?></div>
+											<div class="dayofweek"><?= $nama_bulan; ?></div>
+											<div class="shortdate text-muted"><?= $tahun; ?></div>
+										</td>
+										<td class="agenda-time">
+											<?= $jam_am_pm; ?>
+										</td>
+										<td class="agenda-events">
+											<div class="agenda-event">
+												<i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+												<?= $row->ket; ?>
+											</div>
+										</td>
 									</tr>
-								</thead>
-								<tbody>
-
-									<?php 
-									$no = 1;
-									foreach ($jadwal as $row) {
-
-										?>
-										<tr>
-											<td><?= $no++; ?></td>
-											<td class="text-dark text-nowrap"><?= $row->waktu;?></td>
-											<td class="text-dark text-nowrap"><?= $row->instansi;?></td>
-											<td class="text-dark text-nowrap"><?= $row->tempat_kegiatan;?></td>
-											<td><?= $row->jam;?></td>
-											<td><?= $row->ket;?></td>
-											<td><?= $row->update_by;?></td>
-											<td><?= $row->update_at;?></td>
-											<td class="text-dark text-nowrap">
-												<a href="<?php echo base_url('jadwal_kegiatan/Detailjadwal/'). $row->id_keg; ?>" class="btn btn-primary">Detail</a>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
-						</div>
+								<?php } ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
-				
+
 			</div>
+
+
 		</section><!-- End Services Section -->
 	</main><!-- End #main -->
 

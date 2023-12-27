@@ -16,10 +16,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Logout</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">Form Logout</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color: black;">
                 Jika Anda Ingin Logout Silahkan Klik Tombol "Keluar"!
             </div>
             <div class="modal-footer">
@@ -42,7 +42,8 @@
 <script src="<?= base_url('template/template_admin/ckeditor/ckeditor.js') ?>"></script>
 
 <!-- datatables -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
@@ -57,28 +58,85 @@
 <script src="<?= base_url('template_front/lumia/assets/js/main.js')?>"></script>
 
 
+
+
 <!-- Register -->
 <script>
     $(document).ready(function(){
         $("#tombol_tambah").click(function(){
         // Mengambil nilai input
         var email = $("#email").val();
-        var username = $("#username").val();
         var password = $("#password").val();
-        var no_ktp = $("#no_ktp").val();
         var nama_lengkap = $("#nama_lengkap").val();
-        var tgl_lahir = $("#tgl_lahir").val();
-        var jenis_kelamin = $("#jenis_kelamin").val();
-        var alamat_rumah = $("#alamat_rumah").val();
-        var no_telepon = $("#no_telepon").val();
-        var pekerjaan = $("#pekerjaan").val();
-        var tempat_lahir = $("#tempat_lahir").val();
-        var tempat_lahir = $("#tempat_lahir").val();
-        var umur = $("#umur").val();
+        var no_hp = $("#no_hp").val();
         // Anda dapat menambahkan lebih banyak variabel sesuai dengan input form yang ada
 
         // Memeriksa apakah nilai input tidak kosong
-        if (email === '' || username === '' || password === '' || no_ktp === '' || nama_lengkap === '' || tgl_lahir === '' || jenis_kelamin === '' || alamat_rumah === '' || no_telepon === '' || pekerjaan === '' || tempat_lahir === ''|| umur === '') {
+        if (email === '' || password === '' || nama_lengkap === '' || no_hp === '') {
+            // Menampilkan pesan kesalahan jika ada input yang kosong
+            Swal.fire({
+                title: "Error!",
+                text: "Mohon lengkapi semua kolom.",
+                icon: "error"
+            });
+            return; // Menghentikan eksekusi fungsi jika ada input yang kosong
+        }
+
+        // Memeriksa apakah email sesuai dengan format
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            // Menampilkan pesan kesalahan jika email tidak sesuai format
+            Swal.fire({
+                title: "Error!",
+                text: "Format email tidak valid.",
+                icon: "error"
+            });
+            return; // Menghentikan eksekusi fungsi jika email tidak sesuai format
+        }
+
+        // Serialize form data
+        var data = $('#form').serialize();
+
+        // Melanjutkan dengan AJAX hanya jika tidak ada input yang kosong dan email sesuai format
+        $.ajax({
+            type    : 'POST',
+            url     : "<?php echo base_url(); ?>register/AksiInsertuser",
+            data    : data,
+            success : function(response){
+                Swal.fire({
+                    title: "Success!",
+                    text: "Anda Sudah Registrasi, Silahkan Login!",
+                    icon: "success"
+                }).then((result) => {
+                    // Check if the user clicked "OK"
+                    if (result.isConfirmed || result.isDismissed) {
+                        // Redirect to a new page
+                        window.location.href = "<?php echo base_url(); ?>Auth_login/index";
+                    }
+                });
+            },
+            error   : function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+    });
+    });
+
+</script>>
+
+
+<!-- <script>
+    $(document).ready(function(){
+        $("#tombol_tambah").click(function(){
+        // Mengambil nilai input
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var nama_lengkap = $("#nama_lengkap").val();
+        var no_hp = $("#no_hp").val();
+        // Anda dapat menambahkan lebih banyak variabel sesuai dengan input form yang ada
+
+        // Memeriksa apakah nilai input tidak kosong
+        if (email === ''  || password === '' || nama_lengkap === ''  || no_hp === '') {
             // Menampilkan pesan kesalahan jika ada input yang kosong
             Swal.fire({
                 title: "Error!",
@@ -115,7 +173,10 @@
         });
     });
     });
-</script>
+
+    buatkan saya alert ketika inputan bukan email dari script diatas?
+
+</script> -->
 
 
 <!-- Hubungi -->
@@ -285,6 +346,104 @@ if (password.type === 'password') {
         password.type = 'password'; // ubah type menjadi password
     }
 });
+</script>
+
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+    // Tanggal hari ini
+    var today = new Date();
+    today.setHours(0, 0, 0, 0); // Set waktu menjadi tengah malam
+
+    // Tanggal target (misalnya, 7 hari dari sekarang)
+    var targetDate = new Date(today);
+    targetDate.setDate(today.getDate() + 7); // Misalnya, hitung mundur selama 7 hari dari sekarang
+
+    var countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+        var now = new Date();
+        // now.setHours(0, 0, 0, 0); // Set waktu menjadi tengah malam
+
+        // Pastikan tanggal target lebih besar dari tanggal hari ini
+        if (targetDate > now) {
+            var difference = targetDate - now;
+
+            var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            var months = Math.floor(days / 30.44); // Rata-rata bulan dalam sehari
+            days = days % 30.44; // Sisa hari setelah dihitung bulan
+
+            var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Update HTML elements with the calculated values
+            document.getElementById('days').innerText = formatTime(days);
+            document.getElementById('months').innerText = formatTime(months);
+            document.getElementById('hours').innerText = formatTime(hours);
+            document.getElementById('minutes').innerText = formatTime(minutes);
+            document.getElementById('seconds').innerText = formatTime(seconds);
+
+        } else {
+            // Tanggal target sudah berlalu, hentikan hitung mundur atau lakukan aksi sesuai kebutuhan
+            clearInterval(intervalId);
+            document.getElementById('countdown').innerText = 'Waktu Sudah Habis';
+        }
+    }
+
+    function formatTime(time) {
+        return time < 10 ? '0' + time : time;
+    }
+
+    // Initial update and set interval to update every second
+    var intervalId = setInterval(updateCountdown, 1000);
+});
+
+
+</script> -->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var targetDatetime = new Date('<?php echo $targetDatetime; ?>');
+        var countdownElement = document.getElementById('countdown');
+
+        var instasion = '<?php echo $instansi; ?>';
+        var keg = '<?php echo $kegiatan; ?>';
+        var keterangan = '<?php echo $ket; ?>';
+        
+
+        function updateCountdown() {
+            var now = new Date();
+            var difference = targetDatetime - now;
+
+            var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            var months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44)); 
+            var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+           // Update HTML elements with the calculated values
+           document.getElementById('days').innerText = formatTime(days);
+           document.getElementById('months').innerText = formatTime(months);
+           document.getElementById('hours').innerText = formatTime(hours);
+           document.getElementById('minutes').innerText = formatTime(minutes);
+           document.getElementById('seconds').innerText = formatTime(seconds);
+           document.getElementById('instansi_saja').innerText = instasion;
+           document.getElementById('judul_kegiatan').innerText = keg;
+           document.getElementById('keras').innerText = keterangan;
+           
+       }
+
+       function formatTime(time) {
+        return time < 10 ? '0' + time : time;
+    }
+
+       // Initial update and set interval to update every second
+       updateCountdown();
+       setInterval(updateCountdown, 1000);
+   });
 </script>
 
 
