@@ -60,7 +60,6 @@ class Ganti_password extends CI_Controller {
 
 		}
 
-
 	}
 
 
@@ -69,19 +68,13 @@ class Ganti_password extends CI_Controller {
 
 		$this->form_validation->set_rules('pw_baru', 'Password Baru', 'required');
 		$this->form_validation->set_rules('cpw_baru', 'Password Baru', 'required|matches[pw_baru]');
-
-
 		$this->form_validation->set_message('required', '%s wajib diisi');
-
-
 		$this->form_validation->set_error_delimiters('<p class="alert" style="color:red;">', '</p>');
 
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('backend/ganti_pass');
-		} 
-
-		else {
+		} else {
 			$username = $this->session->userdata('nama');
 
 
@@ -97,6 +90,19 @@ class Ganti_password extends CI_Controller {
 			</script>";
 		}
 	}
+
+
+	public function form_ganti_password()
+	{
+		$data['title'] = 'PMI - Provinsi Sultra';
+
+		$this->load->view('frontend/ganti_password', $data);
+	}
+
+
+	
+
+
 }
 
 

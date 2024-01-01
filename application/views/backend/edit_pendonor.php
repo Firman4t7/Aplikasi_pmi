@@ -34,15 +34,13 @@ include 'componen/header.php'
 				<div class="form-group">
 					<label>No.Kartu Donor</label>
 					<input type="hidden" name="id" value="<?= $pendonor->id_pendonor;?>">
-					<input type="text" class="form-control" name="no_kartudonor"  value="<?= $pendonor->no_kartudonor;?>">
+					<input type="text" class="form-control" name="no_kartudonor"  value="<?= $pendonor->no_kartudonor;?>" readonly>
 					<label>Alamat kantor</label>
 					<input type="text" class="form-control" name="alamat_kantor"  value="<?= $pendonor->alamat_kantor;?>">
 					<label>No.Telephone Kantor</label>
 					<input type="text" class="form-control"  name="no_telepon_kantor" value="<?= $pendonor->no_telepon_kantor;?>">
 					<label>Golongan Darah</label>
 					<input type="text" class="form-control"  name="golongan_darah" value="<?= $pendonor->golongan_darah;?>">
-					<label>Penghargaan Yang di terima</label>
-					<input type="text" class="form-control"  name="penghargaan_diterima" value="<?= $pendonor->penghargaan_diterima;?>">
 					<label>Bersedia donor bulan puasa</label>
 					<select class="form-control" name="bersedia_donor_puasa">
 						<option value="ya" <?= ($pendonor->bersedia_donor_puasa == 'ya') ? 'selected' : ''; ?>>Ya</option>

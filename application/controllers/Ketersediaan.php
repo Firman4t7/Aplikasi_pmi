@@ -9,6 +9,7 @@ class Ketersediaan extends CI_Controller {
 		$this->load->model('M_ketersediaan');
 		$this->load->model('M_golongan');
 		$this->load->model('front/M_datapendonor');
+		$this->load->model('M_jadwal');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
@@ -27,9 +28,9 @@ class Ketersediaan extends CI_Controller {
 
 		$data = array('tampil' => $tampilData);
 
-
 		$data['golongan'] = $this->M_golongan->getDataGolongan();
 
+		$data['jadwal'] = $this->M_jadwal->getDataJadwal();
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 
@@ -40,21 +41,21 @@ class Ketersediaan extends CI_Controller {
 
 	public function aksiInsertKet()
 	{
-
 		$gol_darah = $this->input->post('golongan_darah');
 		$stok_darah = $this->input->post('stok_darah');
 		$update_time = $this->input->post('update_time');
 		$update_by = $this->input->post('update_by');
-
+		$uptd = $this->input->post('instansi');
 
 		$data = array(
 			'golongan_darah' => $gol_darah,
 			'stok_darah' => $stok_darah,
 			'update_time' => $update_time,
-			'update_by' => $update_by
-
+			'update_by' => $update_by,
+			'jadwal_kegiatan' => $uptd
 		);
 
+		
 		// simpan data
 		$save = $this->M_ketersediaan->inputKet($data);
 		$this->session->set_flashdata('flash', 'Disimpan');
@@ -69,6 +70,7 @@ class Ketersediaan extends CI_Controller {
 		$data = array('keterangan' => $editkets);
 
 		$data['golongan'] = $this->M_golongan->getDataGolongan();
+		$data['jadwal'] = $this->M_jadwal->getDataJadwal();
 
 		$data['title'] = 'PMI - Provinsi Sultra';
 
@@ -78,19 +80,19 @@ class Ketersediaan extends CI_Controller {
 
 	public function aksiUpdateKet()
 	{
-
 		$id = $this->input->post('id');
 		$gol_darah = $this->input->post('golongan_darah');
 		$stok_darah = $this->input->post('stok_darah');
 		$update_time = $this->input->post('update_time');
 		$update_by = $this->input->post('update_by');
-
+		$instansi = $this->input->post('instansi');
 
 		$data = array(
 			'golongan_darah' => $gol_darah,
 			'stok_darah' => $stok_darah,
 			'update_time' => $update_time,
-			'update_by' => $update_by
+			'update_by' => $update_by,
+			'jadwal_kegiatan' => $instansi
 		);	
 
 
@@ -117,6 +119,17 @@ class Ketersediaan extends CI_Controller {
 		$data['title'] = 'PMI - Provinsi Sultra';
 
 		$this->load->view('backend/data_pendonor_darah', $data);
+	}
+
+
+	public function Create_datapendonor()
+	{
+
+		$data['tampil_user'] = $this->M_ketersediaan->get_user();
+
+		$data['title'] = 'PMI - Provinsi Sultra';
+
+		$this->load->view('backend/create_datapendonor', $data);
 	}
 
 
@@ -172,6 +185,51 @@ class Ketersediaan extends CI_Controller {
 		$this->M_datapendonor->deleteDon($id);
 		$this->session->set_flashdata('flash', 'Dihapus');
 		redirect('Ketersediaan/datapendonor');
+	}
+
+
+	public function form_admin_donor()
+	{
+		$data['title'] = 'PMI - Provinsi Sultra';
+
+		$this->load->view('backend/form_admin_donor', $data);
+	}
+
+
+	public function aksiInsertDonor()
+	{
+		$email = $this->input->post('email');
+		$nama_lengkap = $this->input->post('nama_lengkap');
+		$no_hp = $this->input->post('no_hp');
+		$no_kartudonor = $this->input->post('no_kartudonor');
+		$golongan_darah = $this->input->post('golongan_darah');
+		$email = $this->input->post('email');
+		$nama_lengkap = $this->input->post('nama_lengkap');
+		$no_hp = $this->input->post('no_hp');
+		$no_kartudonor = $this->input->post('no_kartudonor');
+		$golongan_darah = $this->input->post('golongan_darah');
+		$email = $this->input->post('email');
+		$nama_lengkap = $this->input->post('nama_lengkap');
+		$no_hp = $this->input->post('no_hp');
+		$no_kartudonor = $this->input->post('no_kartudonor');
+		$golongan_darah = $this->input->post('golongan_darah');
+		$no_kartudonor = $this->input->post('no_kartudonor');
+		$golongan_darah = $this->input->post('golongan_darah');
+
+
+		$data = array(
+			'golongan_darah' => $gol_darah,
+			'stok_darah' => $stok_darah,
+			'update_time' => $update_time,
+			'update_by' => $update_by,
+			'jadwal_kegiatan' => $uptd
+		);
+
+		
+		// simpan data
+		$save = $this->M_ketersediaan->inputKet($data);
+		$this->session->set_flashdata('flash', 'Disimpan');
+		redirect('Ketersediaan');
 	}
 
 }

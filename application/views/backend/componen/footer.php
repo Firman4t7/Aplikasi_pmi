@@ -47,10 +47,8 @@ aria-hidden="true">
 
 
 
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 <!-- Bootstrap core JavaScript-->
@@ -60,8 +58,6 @@ aria-hidden="true">
 <!-- Core plugin JavaScript-->
 <script src="<?= base_url('template/template_admin/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="<?= base_url('template/template_admin/js/sb-admin-2.min.js') ?>"></script>
 
 <!-- Page level plugins -->
 <script src="<?= base_url('template/template_admin/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
@@ -69,24 +65,92 @@ aria-hidden="true">
 <script src="<?= base_url('template/template_admin/ckeditor/ckeditor.js') ?>"></script>
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Page level custom scripts -->
 <script src="<?= base_url('template/template_admin/js/demo/datatables-demo.js') ?>"></script>
 
 
 
+
+
 <script>
-	$(document).ready(function() {
+    $(document).ready(function(){
+        $("#tombol_donor").click(function(){
+        // Mengambil nilai input
+        var user_id = $('#user_id').val();
+        var email = $('#email').val();
+        var nama_lengkap = $('#nama_lengkap').val();
+        var no_hp = $('#no_hp').val();
+        var no_kartudonor = $("#no_kartudonor").val();
+        var golongan_darah = $("#golongan_darah").val();
+        var bersedia_donor_puasa = $("#bersedia_donor_puasa").val();
+        var bersedia_donor_diluar_rutin = $("#bersedia_donor_diluar_rutin").val();
+        var donor_terakhir = $("#donor_terakhir").val();
+        var donor_keberapa = $("#donor_keberapa").val();
+        var no_ktp = $("#no_ktp").val();
+        var alamat = $("#alamat").val();
+        var pekerjaan = $("#pekerjaan").val();
+        var jenis_kelamin = $("#jenis_kelamin").val();
+        var tempat_lahir = $("#tempat_lahir").val();
+        var tgl_lahir = $("#tgl_lahir").val();
+        var alamat_kantor = $("#alamat_kantor").val();
+        var no_telepon_kantor = $("#no_telepon_kantor").val();
+
+        // Anda dapat menambahkan lebih banyak variabel sesuai dengan input form yang ada
+        // Memeriksa apakah nilai input tidak kosong
+        if (email === '' || nama_lengkap === '' || no_hp === '' || no_kartudonor === '' || golongan_darah === '' || bersedia_donor_puasa === '' || bersedia_donor_diluar_rutin === '' || donor_terakhir === '' || donor_keberapa === '' || tempat_lahir === '' || alamat_kantor === '' || no_telepon_kantor === '' || golongan_darah === '' || no_ktp === '' || alamat === '' || pekerjaan === '' || jenis_kelamin === '' || tempat_lahir === '' || tgl_lahir === '' || alamat_kantor === '' || no_telepon_kantor === '' || user_id === '') {
+            // Menampilkan pesan kesalahan jika ada input yang kosong
+            Swal.fire({
+                title: "Error!",
+                text: "Mohon lengkapi semua kolom.",
+                icon: "error",
+                timer: 100000, // Waktu tampilan pesan dalam milidetik (misalnya, 3000ms atau 3 detik)
+            });
+            return; // Menghentikan eksekusi fungsi jika ada input yang kosong
+
+        }
+
+        // Serialize form data
+        var data = $('#form_donor').serialize();
+
+        // Melanjutkan dengan AJAX hanya jika tidak ada input yang kosong
+        $.ajax({
+            type    : 'POST',
+            url     : "<?php echo base_url(); ?>donor_darah/AksiInsertDonor",
+            data    : data,
+            success : function(response){
+
+
+                Swal.fire({
+                    title: "Success!",
+                    text: "Anda Sudah Mengisi, Form Donor!",
+                    icon: "success"
+                }).then((result) => {
+                    // Check if the user clicked "OK"
+                    if (result.isConfirmed || result.isDismissed) {
+                        // Redirect to a new page
+                        window.location.href = "<?php echo base_url(); ?>ketersediaan/Create_datapendonor";
+                    }
+                });
+            },
+            error   : function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+    });
+    });
+</script>
+
+
+
+<script>
+ $(document).ready(function() {
         // Untuk sunting
         $('#edit-data').on('show.bs.modal', function (event) {
 
         	var id_data = document.getElementById('id');
         	var hp = document.getElementById('hp_wa');
         	var pesan = document.getElementById('pesan_wa');
-
-
-        	console.log(id_data)
-        	console.log(hp)
-        	console.log(pesa)
 
         });
     });
@@ -121,15 +185,6 @@ aria-hidden="true">
     });
 </script>
 
-
-<script>
-	$(function(){
-
-		CKEDITOR.replace('editor')
-	});
-</script>
-
-
 <script>
     document.getElementById('kirimButton').addEventListener('click', function () {
         var pesanInput = document.getElementsByName('pesan_wa')[0].value;
@@ -140,6 +195,43 @@ aria-hidden="true">
         window.open(whatsappLink, '_blank');
     });
 </script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#autocomplete-email').autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url("ketersediaan/get_email_data"); ?>',
+                    method: 'get',
+                    data: {
+                        term: request.term
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2 // Jumlah karakter minimum sebelum pencarian dimulai
+            
+        });
+    });
+</script>
+
+
+
+
+<script>
+	$(function(){
+
+		CKEDITOR.replace('editor')
+	});
+</script>
+
+
+
+
 
 </body>
 

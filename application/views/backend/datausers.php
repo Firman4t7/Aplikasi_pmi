@@ -36,10 +36,9 @@
 					<thead>
 						<tr>
 							<th>No.</th>
+							<th>Email</th>
 							<th>Nama Lengkap</th>
-							<th>Tanggal Lahir</th>
-							<th>Jenis Kelamin</th>
-							<th>No.Telephone</th>
+							<th>No.Telephone/Hp</th>
 							<th>Aksi</th>
 						</tr>
 					</thead>
@@ -51,10 +50,9 @@
 							?>
 							<tr>
 								<td><?= $no++; ?></td>
+								<td><?= $data->email; ?></td>
 								<td><?= $data->nama_lengkap; ?></td>
-								<td><?= $data->tgl_lahir; ?></td>
-								<td><?= $data->jenis_kelamin; ?></td>
-								<td><?= $data->no_telepon; ?></td>
+								<td><?= $data->no_hp; ?></td>
 								<td>
 									<a href="<?php echo base_url('Data_user/tampil_data/'). $data->id_user ?>" class="btn btn-success"><i class="fab fa-whatsapp"></i> Send</a>
 								</td>

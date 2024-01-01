@@ -55,7 +55,7 @@ include 'componen/header.php'
 					</div>
 					<div class="form-group">
 						<label for="">Update at</label>
-						<input type="datetime-local" class="form-control"  name="update_at" value="<?= $jadwal->waktu; ?>">
+						<input type="time" class="form-control"  name="update_at" value="<?= $jadwal->update_at; ?>">
 					</div> 
 					<button type="submit" class="btn btn-primary mt-4"><i class="fas fa-save"></i> Update</button>
 				</div>

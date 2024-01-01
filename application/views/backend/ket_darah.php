@@ -40,6 +40,7 @@
 					<thead>
 						<tr>
 							<th>No.</th>
+							<th>Instansi/UPTD Sultra</th>
 							<th>Golongan Darah</th>
 							<th>Stok Darah</th>
 							<th>Update Time</th>
@@ -50,22 +51,17 @@
 					<tbody>
 						<?php
 
+						$totalStok = 0;
 						$no = 1;
 						foreach ($tampil as $key => $data) {
 
-
 							$golonganDarah = $data->golongan_darah;
-							$stokDarah = $data->stok_darah;
-
-							if (!isset($totalStok[$golonganDarah])) {
-								$totalStok[$golonganDarah] = 0;
-							}
-
-							$totalStok[$golonganDarah] += $stokDarah;
+							$totalStok += $data->stok_darah;
 
 							?>
 							<tr>
 								<td><?= $no++; ?></td>
+								<td><a href=""><?= $data->instansi; ?></a></td>
 								<td><?= $data->nama_golongan; ?></td>
 								<td><?= $data->stok_darah; ?></td>
 								<td><?= $data->update_time; ?></td>
@@ -75,10 +71,17 @@
 									<a href="<?php echo base_url('ketersediaan/aksiHapusKet/'). $data->id_ket ?>"  Onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data ini!')" class="btn btn-danger">Delete</a>
 								</td>
 							</tr>
-
-
 						<?php } ?>
 
+						<!-- total -->
+						<tfoot>
+							<tr>
+								<td colspan="2">Total :</td>
+								<td><?= $totalStok; ?></td>
+								<td colspan="3"></td>
+							</tr>
+
+						</tfoot>
 					</tbody>
 				</table>
 			</div>
@@ -99,6 +102,17 @@
 					</button>
 				</div>
 				<div class="modal-body">
+					<div class="form-group">
+						<label for="">Instansi/UPTD Sultra</label>
+						<select class="form-control" name="instansi" required>
+							<option value="">- Pilih -</option>
+							<?php 
+							foreach ($jadwal as $data) {
+								?>
+								<option value="<?= $data->id_keg?>"><?= $data->instansi?></option>
+							<?php } ?>
+						</select>
+					</div> 
 					<div class="form-group">
 						<label for="">Golongan Darah</label>
 						<select class="form-control" name="golongan_darah" required>

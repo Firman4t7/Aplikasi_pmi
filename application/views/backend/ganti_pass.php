@@ -20,7 +20,6 @@ include 'componen/header.php'
 					</button>
 				</div>
 			</div>
-
 		</div>
 	<?php endif; ?>
 

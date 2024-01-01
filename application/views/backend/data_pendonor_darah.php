@@ -1,7 +1,5 @@
 <?php include 'componen/header.php'?>
 
-
-
 <div class="container-fluid">
 
 	<!-- Page Heading -->
@@ -26,9 +24,12 @@
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Data Pendonor
+			<h6 class="m-0 font-weight-bold text-primary">Data Pendonor  
+				<!-- Button trigger modal -->
+				<a href="<?= base_url('ketersediaan/Create_datapendonor')?>" style="float: right;" class="btn btn-primary">
+					<i class="fas fa-plus"></i>	Tambah Data
+				</a>
 			</h6>
-
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -38,11 +39,11 @@
 							<th>No.</th>
 							<th>Nomor Kartu Pendonor</th>
 							<th>Nama Lengkap</th>
+							<th>Email</th>
 							<th>Jenis Kelamin</th>
 							<th>Alamat Kantor</th>
 							<th>Nomor Telphone Kantor</th>
 							<th>Golongan Darah</th>
-							<th>Penghargaan Yang Di Terima</th>
 							<th>Bersedia Donor Bulan Puasa</th>
 							<th>Bersedia Donor Diluar Rutin</th>
 							<th>Donor Terakhir</th>
@@ -60,11 +61,11 @@
 								<td><?= $no++; ?></td>
 								<td><?= $data->no_kartudonor; ?></td>
 								<td><?= $data->nama_lengkap; ?></td>
+								<td><?= $data->email; ?></td>
 								<td><?= $data->jenis_kelamin; ?></td>
 								<td><?= $data->alamat_kantor; ?></td>
 								<td><?= $data->no_telepon_kantor; ?></td>
 								<td><?= $data->golongan_darah; ?></td>
-								<td><?= $data->penghargaan_diterima; ?></td>
 								<td><?= $data->bersedia_donor_puasa; ?></td>
 								<td><?= $data->bersedia_donor_diluar_rutin; ?></td>
 								<td><?= $data->donor_terakhir; ?></td>

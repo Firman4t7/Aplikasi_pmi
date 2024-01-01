@@ -58,8 +58,6 @@
 <script src="<?= base_url('template_front/lumia/assets/js/main.js')?>"></script>
 
 
-
-
 <!-- Register -->
 <script>
     $(document).ready(function(){
@@ -122,7 +120,61 @@
     });
     });
 
-</script>>
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        $("#Ubah").click(function(){
+        // Mengambil nilai input
+        var password_lama = $("#pass_lama").val();
+        var password_baru = $("#pass_new").val();
+        var konfirmasi_password = $("#conf_pass").val();
+
+        // Anda dapat menambahkan lebih banyak variabel sesuai dengan input form yang ada
+
+        // Memeriksa apakah nilai input tidak kosong
+        if (password_lama === '' || password_baru === '' || konfirmasi_password === '') {
+            // Menampilkan pesan kesalahan jika ada input yang kosong
+            Swal.fire({
+                title: "Error!",
+                text: "Mohon lengkapi semua kolom.",
+                icon: "error"
+            });
+            return; // Menghentikan eksekusi fungsi jika ada input yang kosong
+        }
+
+        // Serialize form data
+        var data = $('#form_pass').serialize();
+
+        // Melanjutkan dengan AJAX hanya jika tidak ada input yang kosong dan email sesuai format
+        $.ajax({
+            type    : 'POST',
+            url     : "<?php echo base_url(); ?>ganti_password/Aksiubahpassword",
+            data    : data,
+            success : function(response){
+
+                console.log(response)
+
+                Swal.fire({
+                    title: "Success!",
+                    text: "Anda sudah berhasil ganti password baru, Silahkan Login!",
+                    icon: "success"
+                }).then((result) => {
+                    // Check if the user clicked "OK"
+                    if (result.isConfirmed || result.isDismissed) {
+                        // Redirect to a new page
+                        window.location.href = "<?php echo base_url(); ?>Auth_login/index";
+                    }
+                });
+            },
+            error   : function(xhr, status, error){
+                console.error(xhr.responseText);
+            }
+        });
+    });
+    });
+</script>
 
 
 <!-- <script>
@@ -236,27 +288,25 @@
     $(document).ready(function(){
         $("#tombol_donor").click(function(){
         // Mengambil nilai input
+        var user_id = $('#user_id').val();
         var no_kartudonor = $("#no_kartudonor").val();
-        var noktp = $("#noktp").val();
-        var nama_lengkap = $("#nama_lengkap").val();
-        var tgl_lahir = $("#tgl_lahir").val();
-        var jenis_kelamin = $("#jenis_kelamin").val();
-        var email = $("#email").val();
-        var alamat_rumah = $("#alamat_rumah").val();
-        var no_telepon = $("#no_telepon").val();
-        var pekerjaan = $("#pekerjaan").val();
-        var tempat_lahir = $("#tempat_lahir").val();
-        var alamat_kantor = $("#alamat_kantor").val();
-        var no_telepon_kantor = $("#no_telepon_kantor").val();
         var golongan_darah = $("#golongan_darah").val();
-        var penghargaan_diterima = $("#penghargaan_diterima").val();
         var bersedia_donor_puasa = $("#bersedia_donor_puasa").val();
+        var bersedia_donor_diluar_rutin = $("#bersedia_donor_diluar_rutin").val();
         var donor_terakhir = $("#donor_terakhir").val();
         var donor_keberapa = $("#donor_keberapa").val();
+        var no_ktp = $("#no_ktp").val();
+        var alamat = $("#alamat").val();
+        var pekerjaan = $("#pekerjaan").val();
+        var jenis_kelamin = $("#jenis_kelamin").val();
+        var tempat_lahir = $("#tempat_lahir").val();
+        var tgl_lahir = $("#tgl_lahir").val();
+        var alamat_kantor = $("#alamat_kantor").val();
+        var no_telepon_kantor = $("#no_telepon_kantor").val();
 
         // Anda dapat menambahkan lebih banyak variabel sesuai dengan input form yang ada
         // Memeriksa apakah nilai input tidak kosong
-        if (no_kartudonor === '' || noktp === '' || nama_lengkap === '' || tgl_lahir === '' || jenis_kelamin === '' || email === '' || alamat_rumah === '' || no_telepon === '' || pekerjaan === '' || tempat_lahir === '' || alamat_kantor === '' || no_telepon_kantor === '' || golongan_darah === '' || penghargaan_diterima === '' || bersedia_donor_puasa === '' || donor_terakhir === '' || donor_keberapa === '') {
+        if (no_kartudonor === '' || golongan_darah === '' || bersedia_donor_puasa === '' || bersedia_donor_diluar_rutin === '' || donor_terakhir === '' || donor_keberapa === '' || tempat_lahir === '' || alamat_kantor === '' || no_telepon_kantor === '' || golongan_darah === '' || no_ktp === '' || alamat === '' || pekerjaan === '' || jenis_kelamin === '' || tempat_lahir === '' || tgl_lahir === '' || alamat_kantor === '' || no_telepon_kantor === '' || user_id === '') {
             // Menampilkan pesan kesalahan jika ada input yang kosong
             Swal.fire({
                 title: "Error!",
@@ -404,6 +454,7 @@ if (password.type === 'password') {
 </script> -->
 
 
+<!-- coutdown -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var targetDatetime = new Date('<?php echo $targetDatetime; ?>');

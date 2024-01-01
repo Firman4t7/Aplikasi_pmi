@@ -31,6 +31,7 @@
 	<link href="<?= base_url('template_front/lumia/assets/css/style.css') ?>" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	
 </head>
 
 <body style="overflow-x: hidden;">
@@ -68,7 +69,7 @@
 								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Actions
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalGantiPassword">Ganti Password</a></li>
+								<li><a class="dropdown-item" href="<?=base_url('Ganti_password_user')?>">Ganti Password</a></li>
 								<li><a class="dropdown-item" type="button"  href="#" data-bs-toggle="modal" data-bs-target="#modallogout">Logout</a></li>
 							</ul>
 						</li>

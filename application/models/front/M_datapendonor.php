@@ -13,7 +13,6 @@ class M_datapendonor extends CI_Model {
 
 	}
 
-
 	public function cari_data_pendonor($golongan_darah, $umur, $jenis_kelamin) {
 
 		$this->db->select('*');

@@ -13,8 +13,6 @@ include'componens/header.php';
 	}
 
 
-
-
 	.google-btn {
 		align-items: center;
 		padding: 10px 20px;
@@ -71,9 +69,9 @@ include'componens/header.php';
 								</span>
 							</div>
 							<hr>
-							<div class="form-group ml-5">
+							<!-- <div class="form-group ml-5">
 								<a href="" class="btn btn-danger" style="float: right;margin-left: 10px;"><i class="fab fa-google-plus-g"></i>&nbsp;&nbsp;Sign With Goggle</a>
-							</div>
+							</div> -->
 							<div class="form-group ml-5">
 								<button type="submit" class="btn btn-primary" style="float: right;"><i class="fas fa-user-plus"></i> Login</button>
 								

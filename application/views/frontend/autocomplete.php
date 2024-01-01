@@ -1,51 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Autocomplete - Default functionality</title>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <script>
-    $( function() {
-      var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-      ];
-      $( "#tags" ).autocomplete({
-        source: availableTags
-      });
-    } );
-  </script>
-</head>
-<body>
-
-  <div class="ui-widget">
-    <label for="tags">Tags: </label>
-    <input id="tags">
-  </div>
+<input type="text" name="email" id="email" class="form-control">
 
 
-</body>
-</html>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('#email').autocomplete({
+      source: "<?php echo site_url('blog/get_autocomplete');?>",
+      
+      select: function (event, ui) {
+        $('[name="title"]').val(ui.item.label); 
+        $('[name="description"]').val(ui.item.description); 
+      }
+    });
+
+  });
+</script>

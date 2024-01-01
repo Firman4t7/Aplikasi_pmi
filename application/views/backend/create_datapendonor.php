@@ -1,11 +1,5 @@
-<?php
-date_default_timezone_set('Asia/Jakarta');
+<?php include 'componen/header.php'?>
 
-include'componens/header.php'; 
-
-$ids = $this->session->userdata('id_user');
-
-?>
 
 
 <!-- css -->
@@ -137,10 +131,23 @@ $ids = $this->session->userdata('id_user');
 	<section id="services" class="services section-bg">
 		<div class="container">
 			<div class="row" style="">
+				<!-- Alert -->
+				<?php if ($this->session->flashdata('flash')) : ?>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="alert alert-success" role="alert">
+								Data  <strong>Berhasil!</strong> <?= $this->session->flashdata('flash'); ?>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				<?php endif; ?>
 				<div class="col-md-12">
 					<div class="icon-box table-responsive">
 						<div class="pr-10 mb-4">
-							<h2 style="color: black;" align="center">Form Donor Darah</h2>
+							<h2 style="color: black;" align="center">Form Tambah Donor Darah</h2>
 						</div>
 
 						<!-- form daftar -->
@@ -151,16 +158,15 @@ $ids = $this->session->userdata('id_user');
 									<div class="row">
 										<div class="col-sm-4">
 											<label for="">Email</label>
-											<input type="hidden" name="user_id" id="user_id" value="<?= $tampil['id_user']; ?>">
-											<input type="email" class="form-control" id="email" value="<?= $tampil['email']; ?>" name="email" readonly>
+											<input type="text" class="form-control" id="autocomplete-email" name="email" placeholder="Masukkan Email">
 										</div>
 										<div class="col-sm-4">
 											<label for="">Nama Lengkap</label>
-											<input type="text" class="form-control" id="nama_lengkap" value="<?= $tampil['nama_lengkap']; ?>" name="nama_lengkap" readonly>
+											<input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap">
 										</div>
 										<div class="col-sm-4">
 											<label for="">No.Hp</label>
-											<input type="text" class="form-control" id="no_hp" value="<?= $tampil['no_hp']; ?>"  name="no_hp" readonly>
+											<input type="text" class="form-control" id="no_hp"  name="no_hp" placeholder="Masukan No.Hp">
 										</div>
 									</div>
 								</fieldset>	
@@ -213,7 +219,7 @@ $ids = $this->session->userdata('id_user');
 									</div>
 								</fieldset>
 								<br>
-								
+
 								<fieldset class="scheduler-border">
 									<legend class="scheduler-border">Data Pribadi</legend>
 									<div class="row">
@@ -232,45 +238,46 @@ $ids = $this->session->userdata('id_user');
 										<div class="col-sm-4">
 											<label for="cname">Jenis kelamin</label>
 											<br>
-											<!-- <label class="checkbox-inline"><input type="checkbox" name="jk[]" id="jenis_kelamin" value="laki-laki">Laki-laki</label>
-												<label class="checkbox-inline"><input type="checkbox" name="jk[]" id="jenis_kelamin" value="perempuan">Perempuan</label> -->
-
-												<input class="form-check-input ml-2" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="laki-laki">
-												<label class="form-check-label ml-4" for="jenis_kelamin">
-													Laki-laki
-												</label>
-												<input class="form-check-input ml-4" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="perempuan">
-												<label class="form-check-label ml-5" for="jenis_kelamin">
-													Perempuan
-												</label>
-											</div>
-											<div class="col-sm-4">
-												<label for="">Tempat Lahir</label>
-												<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir" class="form-control">
-											</div>
-											<div class="col-sm-4">
-												<label for="">Tanggal Lahir</label>
-												<input type="date" name="tgl_lahir" id="tgl_lahir"  class="form-control">
-											</div>
-											<div class="col-sm-4">
-												<label for="">Alamat pekerjaan</label>
-												<input type="text" name="alamat_kantor" id="alamat_kantor"  class="form-control" placeholder="Masukan Alamat Kantor">
-											</div>
-											<div class="col-sm-4">
-												<label for="">No.Telphone Kantor</label>
-												<input type="text" name="no_telepon_kantor" id="no_telepon_kantor" placeholder="Masukan No.Telphone Kantor"  class="form-control">
-											</div>
+											<input class="form-check-input ml-2" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="laki-laki">
+											<label class="form-check-label ml-4" for="jenis_kelamin">
+												Laki-laki
+											</label>
+											<input class="form-check-input ml-4" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="perempuan">
+											<label class="form-check-label ml-5" for="jenis_kelamin">
+												Perempuan
+											</label>
 										</div>
-									</fieldset>
-									<button type="button" class="btn btn-primary" id="tombol_donor"> Submit</button>
-								</form>
-							</div>
+										<div class="col-sm-4">
+											<label for="">Tempat Lahir</label>
+											<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir" class="form-control">
+										</div>
+										<div class="col-sm-4">
+											<label for="">Tanggal Lahir</label>
+											<input type="date" name="tgl_lahir" id="tgl_lahir"  class="form-control">
+										</div>
+										<div class="col-sm-4">
+											<label for="">Alamat pekerjaan</label>
+											<input type="text" name="alamat_kantor" id="alamat_kantor"  class="form-control" placeholder="Masukan Alamat Kantor">
+										</div>
+										<div class="col-sm-4">
+											<label for="">No.Telphone Kantor</label>
+											<input type="text" name="no_telepon_kantor" id="no_telepon_kantor" placeholder="Masukan No.Telphone Kantor"  class="form-control">
+										</div>
+									</div>
+								</fieldset>
+								<button type="button" class="btn btn-primary" id="tombol_donor"> Simpan</button>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-	</main><!-- End #main -->
 
-	<?php include'componens/footer.php';?>
+
+</main><!-- End #main -->
+
+
+
+<?php include 'componen/footer.php'?>

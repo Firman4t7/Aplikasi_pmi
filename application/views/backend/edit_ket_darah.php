@@ -33,6 +33,15 @@ include 'componen/header.php'
 		<div class="card-body">
 			<form method="POST" action="<?= base_url('Ketersediaan/aksiUpdateKet')?>">
 				<div class="form-group">
+					<label for="">Instansi/UPTD Sultra</label>
+					<select class="form-control" name="instansi" required>
+						<option value="">- Pilih -</option>
+						<?php 
+						foreach ($jadwal as $data) {
+							?>
+							<option value="<?= $data->id_keg?>" <?= ($data->id_keg == $keterangan->jadwal_kegiatan) ? 'selected' : '' ?>><?= $data->instansi?></option>
+						<?php } ?>
+					</select>
 					<label>Golongan Darah</label>
 					<input type="hidden" name="id" value="<?= $keterangan->id_ket; ?>">
 					<select class="form-control" name="golongan_darah" required>

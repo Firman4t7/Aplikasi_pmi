@@ -19,7 +19,7 @@
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
 		</li>
-
+		
 		<!-- Divider -->
 		<hr class="sidebar-divider">
 
@@ -28,14 +28,13 @@
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
 			aria-expanded="true" aria-controls="collapseTwo">
 			<i class="fas fa-fw fa-cog"></i>
-			<span>Components</span>
+			<span>Donor Darah</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="<?= base_url('ketersediaan')?>">Ketersediaan Darah</a>
 				<a class="collapse-item" href="<?= base_url('ketersediaan/datapendonor')?>">Data Pendonor</a>
 				<a class="collapse-item" href="<?= base_url('jadwal')?>">Jadwal Kegiatan</a>
-				<a class="collapse-item" href="<?= base_url('jumbotron')?>">Isi Jumbotron</a>
 				<a class="collapse-item" href="<?= base_url('data_user')?>">Data User</a>
 				<a class="collapse-item" href="<?= base_url('golongan_darah')?>">Golongan Darah</a>
 			</div>

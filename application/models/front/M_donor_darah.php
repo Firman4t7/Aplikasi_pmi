@@ -21,7 +21,16 @@ class M_donor_darah extends CI_Model {
 		$this->db->group_by('k.golongan_darah');
 		return $result = $this->db->get()->result();
 
+	}
 
+
+	public function get_user($id)
+	{
+		$this->db->select('id_user,email,nama_lengkap,no_hp');
+		$this->db->from('user');
+		$this->db->where('id_user', $id);
+		$query = $this->db->get();
+		return $query->row_array();
 	}
 
 

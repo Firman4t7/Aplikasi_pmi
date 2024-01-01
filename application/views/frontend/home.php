@@ -365,7 +365,6 @@ include'componens/header.php';
 								<p>WB: <?= $data->wb; ?></p>
 								<p>PRC: <?= $data->prc; ?></p>
 								<p>TC: <?= $data->tc; ?></p>
-								<p>Belum Serologi: <?= $data->belum_serologi; ?></p>
 							</div>
 							<br>
 							<h5 style="color: white;">Stok Darah : <?= $data->stok_darah; ?> </h5>

@@ -23,6 +23,12 @@ class Donor_darah extends CI_Controller {
 	{	
 		//$data['tampil'] = $this->M_donor_darah->get_ketersediaanD();
 
+
+		$id = $this->session->userdata('id_user');
+
+		$data['tampil'] = $this->M_donor_darah->get_user($id);
+
+
 		$data['title'] = 'PMI - Provinsi Sultra';
 
 		$this->load->view('frontend/form_donor', $data);
@@ -64,23 +70,19 @@ class Donor_darah extends CI_Controller {
 
 		$user_id = $this->input->post('user_id');
 		$no_kartudonor = $this->input->post('no_kartudonor');
-		$noktp = $this->input->post('noktp');
-		$nama_lengkap = $this->input->post('nama_lengkap');
-		$tgl_lahir = $this->input->post('tgl_lahir');
-		$jenis_kelamin = $this->input->post('jenis_kelamin');
-		$email = $this->input->post('email');
-		$alamat_rumah = $this->input->post('alamat_rumah');
-		$no_telepon = $this->input->post('no_telepon');
-		$pekerjaan = $this->input->post('pekerjaan');
-		$tempat_lahir = $this->input->post('tempat_lahir');
-		$alamat_kantor = $this->input->post('alamat_kantor');
-		$no_telepon_kantor = $this->input->post('no_telepon_kantor');
 		$golongan_darah = $this->input->post('golongan_darah');
-		$penghargaan_diterima = $this->input->post('penghargaan_diterima');
 		$bersedia_donor_puasa = $this->input->post('bersedia_donor_puasa');
 		$bersedia_donor_diluar_rutin = $this->input->post('bersedia_donor_diluar_rutin');
 		$donor_terakhir = $this->input->post('donor_terakhir');
 		$donor_keberapa = $this->input->post('donor_keberapa');
+		$no_ktp = $this->input->post('no_ktp');
+		$alamat = $this->input->post('alamat');
+		$pekerjaan = $this->input->post('pekerjaan');
+		$jenis_kelamin = $this->input->post('flexRadioDefault');
+		$tempat_lahir = $this->input->post('tempat_lahir');
+		$tgl_lahir = $this->input->post('tgl_lahir');
+		$alamat_kantor = $this->input->post('alamat_kantor');
+		$no_telepon_kantor = $this->input->post('no_telepon_kantor');
 
 
 		$data = array(
@@ -89,12 +91,19 @@ class Donor_darah extends CI_Controller {
 			'alamat_kantor' => $alamat_kantor,
 			'no_telepon_kantor' => $no_telepon_kantor,
 			'golongan_darah' => $golongan_darah,
-			'penghargaan_diterima' => $penghargaan_diterima,
 			'bersedia_donor_puasa' => $bersedia_donor_puasa,
 			'bersedia_donor_diluar_rutin' => $bersedia_donor_diluar_rutin,
 			'donor_terakhir' => $donor_terakhir,
-			'donor_keberapa' => $donor_keberapa
+			'donor_keberapa' => $donor_keberapa,
+			'no_ktp' => $no_ktp,
+			'alamat_rumah' => $alamat,
+			'pekerjaan' => $pekerjaan,
+			'jenis_kelamin' => $jenis_kelamin,
+			'tempat_lahir' => $tempat_lahir,
+			'donor_terakhir' => $donor_terakhir,
+			'tgl_lahir' => $tgl_lahir
 		);
+
 
 		$this->db->insert('form_pendonor',$data);
 	}

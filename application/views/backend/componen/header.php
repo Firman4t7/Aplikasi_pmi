@@ -23,6 +23,14 @@
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('template/template_admin/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 
+	<!-- jQuery -->
+
+
+	<!-- jQuery UI -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
 </head>
 
 <body id="page-top">
