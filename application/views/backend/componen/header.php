@@ -23,12 +23,12 @@
 	<!-- Custom styles for this page -->
 	<link href="<?= base_url('template/template_admin/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 
-	<!-- jQuery -->
-
-
 	<!-- jQuery UI -->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+	<!-- cdn -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 
 
 </head>

@@ -1,36 +1,17 @@
 <?php include 'componen/header.php'?>
 
 
-
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-	<h1 class="h3 mb-2 text-gray-800">Halaman Ketersediaan</h1>
+	<h1 class="h3 mb-2 text-gray-800">Halaman Detail Instansi</h1>
 	<br>
 
-	<!-- Alert -->
-	<?php if ($this->session->flashdata('flash')) : ?>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="alert alert-success" role="alert">
-					Data  <strong>Berhasil!</strong> <?= $this->session->flashdata('flash'); ?>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	<?php endif; ?>
-
+	
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Ketersediaan Darah
-
-				<!-- Button trigger modal -->
-				<button type="button" style="float: right;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-					<i class="fas fa-plus"></i>	Tambah Data
-				</button>
+			<h6 class="m-0 font-weight-bold text-primary">Detail Data Darah Instansi
 			</h6>
 
 		</div>
@@ -41,37 +22,40 @@
 						<tr>
 							<th>No.</th>
 							<th>Instansi/UPTD Sultra</th>
-							<th>Golongan Darah</th>
-							<th>Stok Darah</th>
+							<th>Tempat</th>
 							<th>Update Time</th>
-							<th>Update By</th>
-							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php
-
-						$totalStok = 0;
+						
+						<?php 
 						$no = 1;
-						foreach ($tampil as $key => $data) {
-
-							$golonganDarah = $data->golongan_darah;
-							$totalStok += $data->stok_darah;
-
+						foreach ($hasil as $data) {
 							?>
+
 							<tr>
 								<td><?= $no++; ?></td>
-								<td><a href="<?= base_url('ketersediaan/detail_instansi/'). $data->id_keg; ?>" target="_blank"><?= $data->instansi; ?></a></td>
-								<td><?= $data->nama_golongan; ?></td>
-								<td><?= $data->stok_darah; ?></td>
-								<td><?= $data->update_time; ?></td>
-								<td><?= $data->update_by; ?></td>
 								<td>
-									<a href="<?php echo base_url('ketersediaan/form_edit_ket/'). $data->id_ket ?>" class="btn btn-warning">Edit</a>
-									<a href="<?php echo base_url('ketersediaan/aksiHapusKet/'). $data->id_ket ?>"  Onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data ini!')" class="btn btn-danger">Delete</a>
+									<?= $data->instansi; ?>
+									<br>
+									<?= $data->nama_golongan; ?> : <?= $data->total_stok_darah; ?> 
+									<br>
 								</td>
+								<td><?= $data->tempat_kegiatan; ?></td>
+								<td><?= $data->update_time; ?></td>
 							</tr>
+
 						<?php } ?>
+
+						<!-- total -->
+						<tfoot>
+							<tr>
+								<td colspan="2">Total :</td>
+								<td></td>
+								<td colspan="3"></td>
+							</tr>
+
+						</tfoot>
 					</tbody>
 				</table>
 			</div>

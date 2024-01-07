@@ -130,21 +130,21 @@
 
 	<section id="services" class="services section-bg">
 		<div class="container">
-			<div class="row" style="">
-				<!-- Alert -->
-				<?php if ($this->session->flashdata('flash')) : ?>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="alert alert-success" role="alert">
-								Data  <strong>Berhasil!</strong> <?= $this->session->flashdata('flash'); ?>
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+			<div class="col-md-12">
+				<div class="row" style="">
+					<!-- Alert -->
+					<?php if ($this->session->flashdata('flash')) : ?>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="alert alert-success" role="alert">
+									Data Form Pendonor  <strong>Berhasil!</strong> <?= $this->session->flashdata('flash'); ?>
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
 							</div>
 						</div>
-					</div>
-				<?php endif; ?>
-				<div class="col-md-12">
+					<?php endif; ?>
 					<div class="icon-box table-responsive">
 						<div class="pr-10 mb-4">
 							<h2 style="color: black;" align="center">Form Tambah Donor Darah</h2>
@@ -152,21 +152,29 @@
 
 						<!-- form daftar -->
 						<div class="form-content bk">
-							<form action="#" method="POST" id="form_donor">
+							<!-- <a href="<?= base_url('data_user')?>" class="btn btn-primary ml-10" target="_blank">Lihat Data User</a> -->
+							<form action="<?= base_url('ketersediaan/Aksi_inputform')?>" method="POST">
 								<fieldset class="scheduler-border">
 									<legend class="scheduler-border">Data Akun</legend>
 									<div class="row">
 										<div class="col-sm-4">
 											<label for="">Email</label>
-											<input type="text" class="form-control" id="autocomplete-email" name="email" placeholder="Masukkan Email">
+											<select class="form-control select2" id="user_id" name="user_id" required>
+												<option value="">- Pilih -</option>
+												<?php 
+												foreach ($tampil_user as $key) {
+													?>
+													<option value="<?= $key->id_user?>"><?= $key->email?></option>
+												<?php } ?>
+											</select>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Nama Lengkap</label>
-											<input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap">
+											<input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap" required>
 										</div>
 										<div class="col-sm-4">
 											<label for="">No.Hp</label>
-											<input type="text" class="form-control" id="no_hp"  name="no_hp" placeholder="Masukan No.Hp">
+											<input type="text" class="form-control" id="no_hp"  name="no_hp" placeholder="Masukan No.Hp" required>
 										</div>
 									</div>
 								</fieldset>	
@@ -178,11 +186,11 @@
 									<div class="row">
 										<div class="col-sm-4">
 											<label for="cname">No.Kartu Pendonor</label>
-											<input type="text" class="form-control" id="no_kartudonor" placeholder="Masukan No.Kartu" name="no_kartudonor">
+											<input type="text" class="form-control" id="no_kartudonor" placeholder="Masukan No.Kartu" name="no_kartudonor" required>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Golongan Darah</label>
-											<select class="form-control" id="golongan_darah" name="golongan_darah">
+											<select class="form-control" id="golongan_darah" name="golongan_darah" required>
 												<option value="">- Pilih -</option>
 												<option value="A">A</option>
 												<option value="B">B</option>
@@ -192,17 +200,17 @@
 										</div>
 										<div class="col-sm-4">
 											<label for="">Bersedia Donor Di Bulan Puasa</label>
-											<select class="form-control" name="bersedia_donor_puasa" id="bersedia_donor_puasa">
+											<select class="form-control" name="bersedia_donor_puasa" id="bersedia_donor_puasa" required>
 												<option value="">- Pilih -</option>
 												<option value="iya">iya</option>
 												<option value="tidak">Tidak</option>
 											</select>
 										</div>
 									</div>
-									<div class="row top-buffer">
+									<div class="row top-buffer mt-4">
 										<div class="col-sm-4">
 											<label for="">Bersedia Donor Diluar Rutin</label>
-											<select class="form-control" name="bersedia_donor_diluar_rutin" id="bersedia_donor_diluar_rutin">
+											<select class="form-control" name="bersedia_donor_diluar_rutin" id="bersedia_donor_diluar_rutin" required>
 												<option value="">- Pilih -</option>
 												<option value="iya">iya</option>
 												<option value="tidak">Tidak</option>
@@ -210,11 +218,11 @@
 										</div>
 										<div class="col-sm-4">
 											<label for="">Donor Terakhir</label>
-											<input type="datetime-local" name="donor_terakhir" id="donor_terakhir" class="form-control">
+											<input type="datetime-local" name="donor_terakhir" id="donor_terakhir" class="form-control" required>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Donor Keberapa</label>
-											<input type="number" name="donor_keberapa" id="donor_keberapa" placeholder="Donor Keberapa" class="form-control">
+											<input type="number" name="donor_keberapa" id="donor_keberapa" placeholder="Donor Keberapa" class="form-control" required>
 										</div>
 									</div>
 								</fieldset>
@@ -222,39 +230,43 @@
 
 								<fieldset class="scheduler-border">
 									<legend class="scheduler-border">Data Pribadi</legend>
-									<div class="row">
+									<div class="row top-buffer">
 										<div class="col-sm-4">
 											<label for="">No.Ktp</label>
-											<input type="text" name="no_ktp" id="no_ktp" placeholder="Masukan No.KTP" class="form-control">
+											<input type="text" name="no_ktp" id="no_ktp" placeholder="Masukan No.KTP" class="form-control" required>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Alamat Rumah</label>
-											<textarea class="form-control" name="alamat" id="alamat" size="5" placeholder="Masukan Alamat"></textarea>
+											<textarea class="form-control" name="alamat" id="alamat" size="5" placeholder="Masukan Alamat" required></textarea>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Pekerjaan</label>
-											<input type="text" name="pekerjaan" id="pekerjaan" placeholder="Masukan Pekerjaan" class="form-control">
+											<input type="text" name="pekerjaan" id="pekerjaan" placeholder="Masukan Pekerjaan" class="form-control" required>
 										</div>
+									</div>
+									<div class="row top-buffer mt-4">
 										<div class="col-sm-4">
 											<label for="cname">Jenis kelamin</label>
 											<br>
-											<input class="form-check-input ml-2" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="laki-laki">
+											<input class="form-check-input ml-2" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="laki-laki" required>
 											<label class="form-check-label ml-4" for="jenis_kelamin">
 												Laki-laki
 											</label>
-											<input class="form-check-input ml-4" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="perempuan">
+											<input class="form-check-input ml-4" type="radio" name="flexRadioDefault" id="jenis_kelamin" value="perempuan" required>
 											<label class="form-check-label ml-5" for="jenis_kelamin">
 												Perempuan
 											</label>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Tempat Lahir</label>
-											<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir" class="form-control">
+											<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir" class="form-control" required>
 										</div>
 										<div class="col-sm-4">
 											<label for="">Tanggal Lahir</label>
-											<input type="date" name="tgl_lahir" id="tgl_lahir"  class="form-control">
+											<input type="date" name="tgl_lahir" id="tgl_lahir"  class="form-control" required>
 										</div>
+									</div>
+									<div class="row top-buffer mt-4">
 										<div class="col-sm-4">
 											<label for="">Alamat pekerjaan</label>
 											<input type="text" name="alamat_kantor" id="alamat_kantor"  class="form-control" placeholder="Masukan Alamat Kantor">
@@ -265,7 +277,7 @@
 										</div>
 									</div>
 								</fieldset>
-								<button type="button" class="btn btn-primary" id="tombol_donor"> Simpan</button>
+								<button type="submit" class="btn btn-primary"> Simpan</button>
 							</form>
 						</div>
 					</div>

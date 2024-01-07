@@ -37,6 +37,7 @@
 				<a class="collapse-item" href="<?= base_url('jadwal')?>">Jadwal Kegiatan</a>
 				<a class="collapse-item" href="<?= base_url('data_user')?>">Data User</a>
 				<a class="collapse-item" href="<?= base_url('golongan_darah')?>">Golongan Darah</a>
+				<a class="collapse-item" href="<?= base_url('ketersediaan/gabungan')?>">Form Table</a>
 			</div>
 		</div>
 	</li>
@@ -44,8 +45,6 @@
 
 	<!-- Divider -->
 	<hr class="sidebar-divider">
-
-
 	<!-- Nav Item - Charts -->
 	<li class="nav-item">
 		<a class="nav-link" href="<?= base_url('tentang_admin')?>">
@@ -70,10 +69,20 @@
 				<!-- Divider -->
 				<hr class="sidebar-divider d-none d-md-block">
 
+				<style>
+					
+					#sidebarToggle {
+						border: none !important;
+						border-radius: 50% !important;
+					}
+				</style>
+
 				<!-- Sidebar Toggler (Sidebar) -->
 				<div class="text-center d-none d-md-inline">
 					<button class="rounded-circle border-0" id="sidebarToggle"></button>
 				</div>
 
+
 			</ul>
-	<!-- End of Sidebar -->
+			<!-- End of Sidebar -->
+

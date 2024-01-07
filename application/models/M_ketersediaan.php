@@ -4,10 +4,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_ketersediaan extends CI_Model {
 	
 	public function getDataKetersediaan() {
+		// $this->db->select('*');
+		// $this->db->from('ketersediaan_darah');
+		// $this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		// $this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		// $query = $this->db->get();
+		// return $query->result();
+
+
+
+		// $this->db->select('ketersediaan_darah.*, gol_darah.nama_golongan, gol_darah.wb, gol_darah.tc, gol_darah.prc, jadwal_kegiatan.instansi, GROUP_CONCAT(gol_darah.nama_golongan) as golongan_concat');
+		// $this->db->from('ketersediaan_darah');
+		// $this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		// $this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		// $this->db->group_by('jadwal_kegiatan.id_keg');
 		$this->db->select('*');
 		$this->db->from('ketersediaan_darah');
 		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
 		$this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		$this->db->group_by('jadwal_kegiatan.id_keg');
 		$query = $this->db->get();
 		return $query->result();
 
@@ -20,9 +35,64 @@ class M_ketersediaan extends CI_Model {
 
 	}
 
+	public function getDataKetersediaanDarah($id) {
+
+		// $this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+
+		$this->db->select('*');
+		$this->db->from('ketersediaan_darah');
+		$this->db->where('jadwal_kegiatan', $id);
+		$this->db->join('gol_darah', 'gol_darah.id_gol = ketersediaan_darah.golongan_darah');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
+
+	public function Jadwal_kegitan_model()
+	{
+		$this->db->select('*');
+		$this->db->from('jadwal_kegiatan');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_dataketersediaan()
+	{
+		$this->db->select('ketersediaan_darah.*, jadwal_kegiatan.*, gol_darah.*');
+		$this->db->from('ketersediaan_darah');
+		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		$this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		$query = $this->db->get();
+		return $query->result();
+
+	}
+
+
+
+	public function tampil_berapa($gol)
+	{
+		$this->db->select('jadwal_kegiatan.instansi, gol_darah.nama_golongan, gol_darah.wb, gol_darah.prc, gol_darah.tc, ketersediaan_darah.stok_darah');
+		$this->db->from('ketersediaan_darah');
+		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		$this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		$this->db->where('jadwal_kegiatan.instansi', $gol); 
+		$this->db->group_by('jadwal_kegiatan.instansi');
+		$query = $this->db->get();
+		return $query->result();
+
+
+	}
+
 	public function inputKet($data) {
 
 		return $this->db->insert('ketersediaan_darah', $data);
+
+	}
+
+	public function inputFormDonadm($data) {
+
+		return $this->db->insert('form_pendonor', $data);
 
 	}
 
@@ -35,6 +105,29 @@ class M_ketersediaan extends CI_Model {
 		$this->db->where('ketersediaan_darah.id_ket', $id);
 		$query = $this->db->get();
 		return $query->row();
+
+	}
+
+	public function getTampiDet($id) {
+
+
+		// $this->db->select('*','SUM(ketersediaan_darah.stok_darah) as total_stok_darah');
+		// $this->db->from('ketersediaan_darah');
+		// $this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		// $this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		// $this->db->where('jadwal_kegiatan.id_keg', $id);
+		// $query = $this->db->get();
+		// return $query->row();
+
+
+		$this->db->select('ketersediaan_darah.update_time, jadwal_kegiatan.instansi, jadwal_kegiatan.tempat_kegiatan, gol_darah.nama_golongan, SUM(ketersediaan_darah.stok_darah) as total_stok_darah');
+		$this->db->from('ketersediaan_darah');
+		$this->db->join('jadwal_kegiatan', 'ketersediaan_darah.jadwal_kegiatan = jadwal_kegiatan.id_keg');
+		$this->db->join('gol_darah', 'ketersediaan_darah.golongan_darah = gol_darah.id_gol');
+		$this->db->where('jadwal_kegiatan.id_keg', $id);
+		$this->db->group_by('gol_darah.nama_golongan');
+		$query = $this->db->get();
+		return $query->result();
 
 	}
 
@@ -88,6 +181,29 @@ class M_ketersediaan extends CI_Model {
 	}
 
 
+	public function getDataByUserEmail($email) {
+		$this->db->select('nama_lengkap, no_hp');
+		$this->db->from('user'); 
+		$this->db->where('email', $email);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+
+	public function user_data($user_id) {
+
+		$query = $this->db->get_where('user', array('id_user' => $user_id));
+		return $query->row();
+	}
+
+
+	public function get_autocomplete_data($search_term) {
+        // Sesuaikan dengan logika Anda untuk mengambil data dari database
+		$this->db->like('email', $search_term);
+        $query = $this->db->get('user'); // Gantilah 'your_table' dengan nama tabel Anda
+
+        return $query->result_array();
+    }
 
 }
 

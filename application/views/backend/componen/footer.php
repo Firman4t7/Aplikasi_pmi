@@ -52,11 +52,27 @@ aria-hidden="true">
 
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?= base_url('template/template_admin/vendor/jquery/jquery.min.js') ?>"></script>
-<script src="<?= base_url('template/template_admin/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?= base_url('template/template_admin/')?>vendor/jquery/jquery.min.js"></script>
+<script src="<?= base_url('template/template_admin/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="<?= base_url('template/template_admin/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+<script src="<?= base_url('template/template_admin/')?>vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="<?= base_url('template/template_admin/')?>js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="<?= base_url('template/template_admin/')?>vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="<?= base_url('template/template_admin/')?>js/demo/chart-area-demo.js"></script>
+
+
+<!-- Load Select2 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+
+<!-- Load Select2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
 
 <!-- Page level plugins -->
@@ -68,6 +84,9 @@ aria-hidden="true">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Page level custom scripts -->
 <script src="<?= base_url('template/template_admin/js/demo/datatables-demo.js') ?>"></script>
+
+
+
 
 
 
@@ -144,7 +163,7 @@ aria-hidden="true">
 
 
 <script>
- $(document).ready(function() {
+   $(document).ready(function() {
         // Untuk sunting
         $('#edit-data').on('show.bs.modal', function (event) {
 
@@ -196,30 +215,58 @@ aria-hidden="true">
     });
 </script>
 
-
 <script>
+
     $(document).ready(function() {
-        $('#autocomplete-email').autocomplete({
-            source: function(request, response) {
-                $.ajax({
-                    url: '<?php echo base_url("ketersediaan/get_email_data"); ?>',
-                    method: 'get',
-                    data: {
-                        term: request.term
-                    },
-                    dataType: 'json',
-                    success: function(data) {
-                        response(data);
-                    }
-                });
-            },
-            minLength: 2 // Jumlah karakter minimum sebelum pencarian dimulai
-            
+        // Inisialisasi Select2 pada elemen dengan class "select2"
+        $('.select2').select2();
+
+        // Menangani perubahan pada dropdown email
+        $('#user_id').on('change', function() {
+            var selectedUserId = $(this).val();
+
+            // Menggunakan AJAX untuk mendapatkan data berdasarkan ID user
+            $.ajax({
+                url: '<?= base_url('Ketersediaan/get_user_data'); ?>', // Ganti dengan URL controller yang sesuai
+                method: 'post',
+                data: { id_user: selectedUserId },
+                dataType: 'json',
+                success: function(response) {
+
+                    // Mengisi nilai input nama_lengkap dan no_hp dengan data yang diterima
+                    $('#nama_lengkap').val(response.nama_lengkap);
+                    $('#no_hp').val(response.no_hp);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
         });
     });
 </script>
 
+<script>
+    $(function() {
+        // Mengaktifkan autocomplete pada input dengan ID 'autocomplete'
+        $("#email").autocomplete({
+            source: function(request, response) {
+                // Menentukan URL untuk permintaan data autocomplete
+                var url = "<?php echo site_url('ketersediaan/Autocomplete_data'); ?>";
 
+                // Menentukan parameter yang akan dikirimkan ke server
+                var params = {
+                    term: request.term
+                };
+
+                // Melakukan permintaan AJAX ke server
+                $.get(url, params, function(data) {
+                    // Mengembalikan hasil ke dalam dropdown autocomplete
+                    response(data);
+                });
+            } // Menentukan jumlah karakter sebelum permintaan autocomplete dilakukan
+        });
+    });
+</script>
 
 
 <script>

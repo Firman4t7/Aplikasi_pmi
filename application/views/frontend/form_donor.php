@@ -195,6 +195,7 @@ $ids = $this->session->userdata('id_user');
 									</div>
 									<div class="row top-buffer">
 										<div class="col-sm-4">
+											<br>
 											<label for="">Bersedia Donor Diluar Rutin</label>
 											<select class="form-control" name="bersedia_donor_diluar_rutin" id="bersedia_donor_diluar_rutin">
 												<option value="">- Pilih -</option>
@@ -203,10 +204,12 @@ $ids = $this->session->userdata('id_user');
 											</select>
 										</div>
 										<div class="col-sm-4">
+											<br>
 											<label for="">Donor Terakhir</label>
 											<input type="datetime-local" name="donor_terakhir" id="donor_terakhir" class="form-control">
 										</div>
 										<div class="col-sm-4">
+											<br>
 											<label for="">Donor Keberapa</label>
 											<input type="number" name="donor_keberapa" id="donor_keberapa" placeholder="Donor Keberapa" class="form-control">
 										</div>
@@ -230,6 +233,7 @@ $ids = $this->session->userdata('id_user');
 											<input type="text" name="pekerjaan" id="pekerjaan" placeholder="Masukan Pekerjaan" class="form-control">
 										</div>
 										<div class="col-sm-4">
+											<br>
 											<label for="cname">Jenis kelamin</label>
 											<br>
 											<!-- <label class="checkbox-inline"><input type="checkbox" name="jk[]" id="jenis_kelamin" value="laki-laki">Laki-laki</label>
@@ -245,18 +249,22 @@ $ids = $this->session->userdata('id_user');
 												</label>
 											</div>
 											<div class="col-sm-4">
+												<br>
 												<label for="">Tempat Lahir</label>
 												<input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan Tempat Lahir" class="form-control">
 											</div>
 											<div class="col-sm-4">
+												<br>
 												<label for="">Tanggal Lahir</label>
 												<input type="date" name="tgl_lahir" id="tgl_lahir"  class="form-control">
 											</div>
 											<div class="col-sm-4">
+												<br>
 												<label for="">Alamat pekerjaan</label>
 												<input type="text" name="alamat_kantor" id="alamat_kantor"  class="form-control" placeholder="Masukan Alamat Kantor">
 											</div>
 											<div class="col-sm-4">
+												<br>
 												<label for="">No.Telphone Kantor</label>
 												<input type="text" name="no_telepon_kantor" id="no_telepon_kantor" placeholder="Masukan No.Telphone Kantor"  class="form-control">
 											</div>

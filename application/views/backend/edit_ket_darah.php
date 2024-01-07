@@ -3,11 +3,9 @@ include 'componen/header.php'
 ?>
 
 <div class="container-fluid">
-
 	<!-- Page Heading -->
 	<h1 class="h3 mb-2 text-gray-800">Halaman Ketersediaan</h1>
 	<br>
-
 	<!-- Alert -->
 	<?php if ($this->session->flashdata('flash')) : ?>
 		<div class="row">
@@ -19,7 +17,6 @@ include 'componen/header.php'
 					</button>
 				</div>
 			</div>
-
 		</div>
 	<?php endif; ?>
 

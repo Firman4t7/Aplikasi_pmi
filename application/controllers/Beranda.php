@@ -21,19 +21,15 @@ class Beranda extends CI_Controller {
 	public function index()
 	{
 		
-
 		// batas
-
 		$data['jadwal'] = $this->M_jadwal->getDataJadwal3();
 
 		$isiket = $this->M_jadwal->getDataJadwal1();
 
-		
 		$data['tampil'] = $this->M_ketersediaan->getGroupData();
 		
 		$data['jumbotron'] = $this->M_jumbotron->getDataJumboId();
 		
-
 
 		// script coutdown
 		$Datetime = $this->M_countdown->getTargetDatetimeCoutdown();

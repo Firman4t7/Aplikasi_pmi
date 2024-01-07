@@ -7,7 +7,6 @@ include'componens/header.php';
 
 
 <style>
-
 	/* Common styles for both desktop and mobile */
 	.text-center {
 		width: 90px;
@@ -275,6 +274,7 @@ include'componens/header.php';
 		font-family: Arial, sans-serif;
 	}
 
+
 </style>
 
 
@@ -336,8 +336,6 @@ include'componens/header.php';
 
 <main id="main">
 
-
-
 	<!-- ======= What We Do Section ======= -->
 	<section id="what-we-do" class="what-we-do" style="padding:19px;">
 		<div class="container fixed-element">
@@ -376,69 +374,66 @@ include'componens/header.php';
 	</section>
 
 
-
 	<!-- counter -->
 	<section id="what-we-do" class="what-we-do" style="padding:19px;">
-
 		<br>
 		<br>
 		<div class="pr-10">
 			<h2 style="color: black;" align="center"><u>Halaman Counter</u></h2>
 		</div>
-
 		<br>
 		<br>
-
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<!-- Custom Files -->
 		<link type="text/css" rel="stylesheet" href="<?= base_url('template_front/counter/')?>src/css/particles.css">
 		<link type="text/css" rel="stylesheet" href="<?= base_url('template_front/counter/')?>src/css/main.css?v=0.04">
 		<script type="text/javascript" src="<?= base_url('template_front/counter/')?>src/js/countdown.js?v=0.04"></script>
 
-		<div class="bg">	
+		<div class="">	
+			<div class="container">
+				<div class="row" style="">
+					<div class="col-md-12">
+						<div class="icon-box table-responsive" style="background-color: #337ab7;">
 
-			<div class="conrainer">
-				<div class="col container-fluid main-subscribe-cont mt-5">
-					<div class="row soon-title">
-						<strong style="font-size: 50px;" align="center" id="instansi_saja"></strong>
-					</div>
-				</div>
-				<div class="row">
-					<div id="countdown">
-						<div class="countdown-item">
-							<span id="months">00</span>
-							<p>Months</p>
+							<strong style="font-size: 50px;" align="center" id="instansi_saja"></strong>
+
+							<div class="row">
+								<div id="countdown">
+									<div class="countdown-item">
+										<span id="months">00</span>
+										<p>Months</p>
+									</div>
+									<div class="countdown-item">
+										<span id="days">00</span>
+										<p>Days</p>
+									</div>
+									<div class="countdown-item">
+										<span id="hours">00</span>
+										<p>Hours</p>
+									</div>
+									<div class="countdown-item">
+										<span id="minutes">00</span>
+										<p>Minutes</p>
+									</div>
+									<div class="countdown-item">
+										<span id="seconds">00</span>
+										<p>Seconds</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col container-fluid">
+									<strong style="font-size: 50px;" id="judul_kegiatan"></strong>
+									<br>
+									<p id="keras" style="color: white;"></p>
+								</div>
+							</div>
 						</div>
-						<div class="countdown-item">
-							<span id="days">00</span>
-							<p>Days</p>
-						</div>
-						<div class="countdown-item">
-							<span id="hours">00</span>
-							<p>Hours</p>
-						</div>
-						<div class="countdown-item">
-							<span id="minutes">00</span>
-							<p>Minutes</p>
-						</div>
-						<div class="countdown-item">
-							<span id="seconds">00</span>
-							<p>Seconds</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col container-fluid main-subscribe-cont">
-						<strong style="font-size: 50px;" id="judul_kegiatan"></strong>
-						<br>
-						<p id="keras"></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
 
 	<!-- ======= Services Section ======= -->
 	<section id="services" class="services section-bg">
@@ -449,7 +444,6 @@ include'componens/header.php';
 						<div class="pr-10 mb-4">
 							<h2 style="color: black;" align="center">Jadwal Kegiatan</h2>
 						</div>
-
 						<!-- panel -->
 						<div class="col-md-11">
 							<div class="panel-body">
