@@ -87,11 +87,6 @@ aria-hidden="true">
 
 
 
-
-
-
-
-
 <script>
     $(document).ready(function(){
         $("#tombol_donor").click(function(){
@@ -163,7 +158,7 @@ aria-hidden="true">
 
 
 <script>
-   $(document).ready(function() {
+ $(document).ready(function() {
         // Untuk sunting
         $('#edit-data').on('show.bs.modal', function (event) {
 
@@ -181,7 +176,7 @@ aria-hidden="true">
         var rows = $("#dataTable tbody tr"); // Mendapatkan semua baris tabel
 
         rows.each(function() {
-            var stokDarah = parseInt($(this).find("td:eq(2)").text()); // Mengambil nilai stok_darah dari kolom ke-3
+            var stokDarah = parseInt($(this).find("td:eq(6)").text()); // Mengambil nilai stok_darah dari kolom ke-3
 
             if (stokDarah === 3) {
                 // Menampilkan alert jika stok_darah kurang dari atau sama dengan 3
@@ -216,6 +211,66 @@ aria-hidden="true">
 </script>
 
 <script>
+    $(document).ready(function() {
+        // Inisialisasi Select2 pada elemen dengan class "select2"
+        $('.select2').select2();
+
+        // Menangani perubahan pada dropdown email
+        $('#user_id').on('change', function() {
+            var selectedUserId = $(this).val();
+
+            // Menggunakan AJAX untuk mendapatkan data berdasarkan ID user
+            $.ajax({
+                url: '<?= base_url('Ketersediaan/get_user_data'); ?>', // Ganti dengan URL controller yang sesuai
+                method: 'post',
+                data: { id_user: selectedUserId },
+                dataType: 'json',
+                success: function(response) {
+
+                    // Mengisi nilai input nama_lengkap dan no_hp dengan data yang diterima
+                    $('#nama_lengkap').val(response.nama_lengkap);
+                    $('#no_hp').val(response.no_hp);
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        // Inisialisasi Select2 pada elemen dengan class "select2"
+        $('.select2').select2();
+
+        // Menangani perubahan pada dropdown email
+        $('#id_gol').on('change', function() {
+            var selectedUserId = $(this).val();
+
+            // Menggunakan AJAX untuk mendapatkan data berdasarkan ID user
+            $.ajax({
+                url: '<?= base_url('Ketersediaan/getStokDarah'); ?>', // Ganti dengan URL controller yang sesuai
+                method: 'post',
+                data: { id_gol: selectedUserId },
+                dataType: 'json',
+                success: function(response) {
+
+                    $('#stok_darah').val(response.stok);
+                    
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+<script>
 
     $(document).ready(function() {
         // Inisialisasi Select2 pada elemen dengan class "select2"
@@ -245,6 +300,9 @@ aria-hidden="true">
     });
 </script>
 
+
+
+
 <script>
     $(function() {
         // Mengaktifkan autocomplete pada input dengan ID 'autocomplete'
@@ -266,15 +324,37 @@ aria-hidden="true">
             } // Menentukan jumlah karakter sebelum permintaan autocomplete dilakukan
         });
     });
-</script>
+</script> 
 
 
+
+
+
+<!-- penjumlahan Stok -->
 <script>
-	$(function(){
+        // Attach input event listeners to the wb, prc, and tc inputs
+        $('#wb, #prc, #tc').on('input', function() {
+            calculateStok();
+        });
 
-		CKEDITOR.replace('editor')
-	});
-</script>
+        function calculateStok() {
+            var wbValue = parseFloat($('#wb').val()) || 0;
+            var prcValue = parseFloat($('#prc').val()) || 0;
+            var tcValue = parseFloat($('#tc').val()) || 0;
+
+            var total = wbValue + prcValue + tcValue;
+
+            $('#stok').val(total);
+        }
+    </script>
+
+
+    <script>
+       $(function(){
+
+          CKEDITOR.replace('editor')
+      });
+  </script>
 
 
 

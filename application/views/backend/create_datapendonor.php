@@ -170,11 +170,11 @@
 										</div>
 										<div class="col-sm-4">
 											<label for="">Nama Lengkap</label>
-											<input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap" required>
+											<input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukan Nama Lengkap" readonly>
 										</div>
 										<div class="col-sm-4">
 											<label for="">No.Hp</label>
-											<input type="text" class="form-control" id="no_hp"  name="no_hp" placeholder="Masukan No.Hp" required>
+											<input type="text" class="form-control" id="no_hp"  name="no_hp" placeholder="Masukan No.Hp" readonly>
 										</div>
 									</div>
 								</fieldset>	

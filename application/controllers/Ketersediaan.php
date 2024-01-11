@@ -23,27 +23,37 @@ class Ketersediaan extends CI_Controller {
 	public function index()
 	{
 
+    $golonganDarahID = $this->input->post('golonganDarah');
+
+    $stokDarah = $this->M_ketersediaan->getStokDarah($golonganDarahID);
+
+
+    $data = array('get_darah' => $stokDarah);
+
 		// ketersediaan
-		$tampilData = $this->M_ketersediaan->getDataKetersediaan();
+    $tampilData = $this->M_ketersediaan->getDataKetersediaan();
 
-		$data = array('tampil' => $tampilData);
-
-        // golongan
+    $data = array('tampil' => $tampilData);
+    
+    // golongan
     $data['golongan'] = $this->M_golongan->getDataGolongan();
 
-        // jadwal
+    // jadwal
     $data['jadwal'] = $this->M_jadwal->getDataJadwal();
 
-        // title
+
+
+    // title
     $data['title'] = 'PMI - Provinsi Sultra';
 
     $this->load->view('backend/ket_darah', $data);
 
   }
 
+
   public function aksiInsertKet()
   {
-    $gol_darah = $this->input->post('golongan_darah');
+    $gol_darah = $this->input->post('id_gol');
     $stok_darah = $this->input->post('stok_darah');
     $update_time = $this->input->post('update_time');
     $update_by = $this->input->post('update_by');
@@ -310,17 +320,30 @@ class Ketersediaan extends CI_Controller {
       $user_data = $this->M_ketersediaan->user_data($user_id);
 
       echo json_encode($user_data);
+
+    }
+
+
+    public function getStokDarah(){
+
+      $golonganDarahID = $this->input->post('id_gol');
+
+      $stokDarah = $this->M_ketersediaan->getStokDarah($golonganDarahID);
+
+      echo json_encode($stokDarah);
+
     }
 
 
     public function gabungan()
     {
 
-        // ketersediaan
-      // $tampilData = $this->M_ketersediaan->getDataKetersediaan();
+       // ketersediaan
+      //$tampilDataS = $this->M_ketersediaan->getDataKetersediaan();
 
 
       $tampilData = $this->M_ketersediaan->Jadwal_kegitan_model();
+
 
       foreach ($tampilData as $row) {
 
@@ -328,34 +351,7 @@ class Ketersediaan extends CI_Controller {
 
       }
 
-      // foreach ($tampilData as $row) {
-      //   $row->darah = $this->M_ketersediaan->getDataDarah($row->golongan_darah);
-      // }
-
-      // foreach ($tampilData as $rowa) {
-      //   foreach ($rowa->darah as $rowb) {
-      //     var_dump ($rowb);
-      //     die();
-      //   }
-      //   die();
-      // }
-
       $data = array('tampil' => $tampilData);
-
-
-      // var_dump($data);
-
-      // $tampil = array();
-
-      // foreach ($data['tampil'] as $key) {
-
-      //   $gol = $key->instansi;
-
-
-      //   $data['row'] = $this->M_ketersediaan->tampil_berapa($gol);
-
-
-      // }
 
 
         // golongan

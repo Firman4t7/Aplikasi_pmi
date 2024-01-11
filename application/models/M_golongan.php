@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_golongan extends CI_Model {
 
-
 	public function getDataGolongan() {
 		$this->db->select('*');
 		$this->db->from('gol_darah');
@@ -17,7 +16,6 @@ class M_golongan extends CI_Model {
 		return $this->db->insert('gol_darah', $data);
 
 	}
-
 
 	public function DataGolongan($id)
 	{
@@ -38,6 +36,8 @@ class M_golongan extends CI_Model {
 		$this->db->where('id_gol', $id);
 		$this->db->delete('gol_darah');
 	}
+
+
 
 }
 
